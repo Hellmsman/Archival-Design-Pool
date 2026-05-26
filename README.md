@@ -47,7 +47,7 @@ The repository is organized into distinct design streams based on the framework 
 
 ---
 
-### 02 / Vortek Kinetic Showcase (`Stitch/Showcase`)
+### 02 / Interactive Service Showcase (`Stitch/Showcase`)
 * **Aesthetic:** Vibrant-Luxe, illuminated dark theme with high-saturation chroma glows.
 * **Core Stack:** Tailwind CSS, Custom Interactive Canvas Cursor.
 * **Key Features:** Smooth infinite text marquee, technical data grids, and a glassmorphic endeavor list optimized for precision-engineered products.
