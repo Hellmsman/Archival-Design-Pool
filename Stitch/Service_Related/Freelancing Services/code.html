@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            background-color: currentColor;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 16px;
+        }
+        .bento-card {
+            border: 1px solid #334155;
+            background: #1e1e1e;
+            padding: 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .bento-card:active {
+            transform: translate(2px, 2px);
+            box-shadow: none;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px #334155;
+        }
+        .hard-shadow-sm {
+            box-shadow: 2px 2px 0px #334155;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#fbbc00",
+                      "surface-container-low": "#1a1a1a",
+                      "on-tertiary-fixed": "#e2e8f0",
+                      "on-secondary-fixed": "#002105",
+                      "on-primary-fixed": "#261a00",
+                      "error-container": "#93000a",
+                      "secondary-fixed-dim": "#7edb7f",
+                      "on-error-container": "#ffdad6",
+                      "tertiary": "#a5b4fc",
+                      "inverse-surface": "#f1f1f1",
+                      "surface-bright": "#2c2c2c",
+                      "surface-container-lowest": "#121212",
+                      "on-tertiary": "#1e1e1e",
+                      "background": "#121212",
+                      "on-surface-variant": "#cbd5e1",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#1e1e1e",
+                      "on-secondary-container": "#002105",
+                      "primary-container": "#ffbf00",
+                      "tertiary-container": "#334155",
+                      "surface-variant": "#2a2a2a",
+                      "on-error": "#ffffff",
+                      "secondary-fixed": "#99f899",
+                      "on-primary": "#000000",
+                      "tertiary-fixed-dim": "#bbc6e2",
+                      "outline-variant": "#475569",
+                      "on-primary-fixed-variant": "#5c4300",
+                      "on-background": "#f8fafc",
+                      "outline": "#64748b",
+                      "on-surface": "#f8fafc",
+                      "inverse-primary": "#795900",
+                      "surface": "#121212",
+                      "surface-dim": "#0a0a0a",
+                      "secondary": "#4ade80",
+                      "primary-fixed-dim": "#fbbc00",
+                      "on-tertiary-container": "#d7e2ff",
+                      "tertiary-fixed": "#d7e2ff",
+                      "on-secondary-fixed-variant": "#005316",
+                      "primary": "#ffbf00",
+                      "on-primary-container": "#261a00",
+                      "surface-container-highest": "#333333",
+                      "inverse-on-surface": "#1b1b1b",
+                      "error": "#ffb4ab",
+                      "secondary-container": "#22c55e",
+                      "primary-fixed": "#ffdfa0",
+                      "on-tertiary-fixed-variant": "#c7d2fe",
+                      "surface-container-high": "#262626"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "max-width": "1280px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "32px",
+                      "base": "8px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-xl": ["Space Grotesk"],
+                      "headline-lg": ["Space Grotesk"],
+                      "label-caps": ["Space Grotesk"],
+                      "code-sm": ["Space Mono"],
+                      "headline-lg-mobile": ["Space Grotesk"],
+                      "body-md": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "code-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-sm border-b border-outline-variant h-16">
+<nav class="flex justify-between items-center px-margin-desktop w-full max-w-max-width mx-auto h-full">
+<div class="flex items-center gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">DevLearner</span>
+<span class="hidden md:inline-block px-2 py-0.5 bg-primary-container border border-outline-variant font-code-sm text-code-sm font-bold text-on-primary-container">PRO</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary border-b-2 border-primary pb-1 font-bold font-body-md text-body-md" href="#">Pathways</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Editor</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Community</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Documentation</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 font-code-sm text-code-sm border border-outline hover:bg-surface-container-high transition-all active:scale-95 text-on-surface">Sign Up</button>
+<button class="px-4 py-2 bg-primary-container text-on-primary-container border border-outline-variant font-code-sm text-code-sm font-bold hard-shadow-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all">Start Learning</button>
+</div>
+</nav>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="min-h-[819px] flex flex-col justify-center items-center relative overflow-hidden bg-surface-container-low border-b border-outline-variant px-margin-mobile md:px-margin-desktop">
+<!-- Background Decoration (IDE-like Grid) -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 32px 32px;"></div>
+<div class="max-w-4xl w-full text-center z-10 reveal">
+<div class="inline-flex items-center gap-2 mb-6 px-3 py-1 bg-surface-variant border border-outline-variant font-code-sm text-code-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                    Available for New Projects
+                </div>
+<h1 class="font-headline-xl text-headline-xl md:text-6xl mb-4 text-on-surface">
+                    Python Architect | <span class="text-primary">Outsourced Solutions</span>
+</h1>
+<div class="font-code-sm text-lg md:text-xl text-on-surface-variant min-h-[1.5em] mb-12">
+<span id="typing-text"></span><span class="cursor">|</span>
+</div>
+<div class="flex flex-col md:flex-row justify-center gap-4">
+<button class="group relative px-8 py-4 bg-primary-container border border-outline-variant text-on-primary-container font-bold text-lg hard-shadow transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none">
+                        View Technical Portfolios
+                    </button>
+<button class="px-8 py-4 bg-surface border border-outline-variant text-on-surface font-bold text-lg hover:bg-surface-container transition-all">
+                        Book a Technical Audit
+                    </button>
+</div>
+</div>
+<!-- Floating Code Card (Dark Editor) -->
+<div class="mt-16 w-full max-w-2xl bg-[#0d1117] border border-outline-variant p-4 font-code-sm text-code-sm reveal shadow-2xl">
+<div class="flex items-center gap-2 mb-4 border-b border-outline-variant/30 pb-2">
+<div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+<div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+<span class="ml-4 text-on-surface-variant/50">architect.py</span>
+</div>
+<div class="text-[#c9d1d9] leading-relaxed">
+<p><span class="text-[#ff7b72]">class</span> <span class="text-[#d2a8ff]">ScalableSystem</span>:</p>
+<p class="pl-4"><span class="text-[#ff7b72]">def</span> <span class="text-[#d2a8ff]">__init__</span>(self, requirements):</p>
+<p class="pl-8">self.stack = [<span class="text-[#a5d6ff]">'Python'</span>, <span class="text-[#a5d6ff]">'Node.js'</span>, <span class="text-[#a5d6ff]">'Java'</span>]</p>
+<p class="pl-8">self.focus = <span class="text-[#a5d6ff]">'Performance'</span></p>
+<p class="pl-4"><span class="text-[#ff7b72]">def</span> <span class="text-[#d2a8ff]">deploy</span>(self):</p>
+<p class="pl-8"><span class="text-[#ff7b72]">return</span> <span class="text-[#a5d6ff]">"Infrastructure Orchestrated."</span></p>
+</div>
+</div>
+</section>
+<!-- Trust Bar -->
+<section class="py-12 border-b border-outline-variant bg-surface">
+<div class="max-w-max-width mx-auto px-margin-desktop">
+<p class="text-center font-label-caps text-label-caps mb-8 text-on-surface-variant opacity-60">Trusted by Global Foundation &amp; Tech Leaders</p>
+<div class="flex flex-wrap justify-around items-center gap-8 opacity-80 filter grayscale invert hover:invert-0 hover:grayscale-0 transition-all">
+<span class="font-headline-lg font-bold text-on-surface">Mozilla Foundation</span>
+<span class="font-headline-lg font-bold text-on-surface">Linux Foundation</span>
+<span class="font-headline-lg font-bold text-on-surface">Ubuntu</span>
+<span class="font-headline-lg font-bold text-on-surface">Qualcomm</span>
+</div>
+</div>
+</section>
+<!-- Services & Pricing -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="mb-16 reveal">
+<h2 class="font-headline-xl text-headline-xl mb-4 text-on-surface">Core Service Offerings</h2>
+<div class="w-24 h-1 bg-primary border border-outline-variant"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Service Card 1 -->
+<div class="bento-card hard-shadow flex flex-col h-full reveal">
+<div class="flex-grow">
+<div class="mb-6 font-code-sm text-primary uppercase tracking-widest">Standard Tier</div>
+<h3 class="font-headline-lg text-headline-lg mb-4 text-on-surface">Architecture Design</h3>
+<p class="text-on-surface-variant mb-8">End-to-end Python system design with focus on scalability, maintainability, and clear documentation for your internal teams.</p>
+<div class="text-4xl font-bold mb-8 text-on-surface">From $1,000<span class="text-lg font-normal opacity-60">/project</span></div>
+</div>
+<button class="w-full py-3 bg-secondary-container text-on-secondary-container border border-outline-variant font-bold hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                        Request Proposal
+                    </button>
+</div>
+<!-- Service Card 2 - Featured -->
+<div class="bento-card hard-shadow bg-surface-container-highest border-2 border-primary flex flex-col h-full reveal" style="transform: scale(1.05);">
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-6">
+<div class="font-code-sm text-primary uppercase tracking-widest">Premium Tier</div>
+<span class="px-2 py-1 bg-primary text-on-primary font-code-sm text-[10px] font-black">MOST POPULAR</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-4 text-on-surface">Full-Stack Solution</h3>
+<p class="text-on-surface-variant mb-8">Bespoke Python backends integrated with modern frameworks, cloud infrastructure, and 24/7 technical monitoring.</p>
+<div class="text-4xl font-bold mb-8 text-on-surface">From $2,500<span class="text-lg font-normal opacity-60">/project</span></div>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary border border-outline-variant font-bold hard-shadow-sm hover:shadow-none transition-all">
+                        Start Building
+                    </button>
+</div>
+<!-- Service Card 3 -->
+<div class="bento-card hard-shadow flex flex-col h-full reveal">
+<div class="flex-grow">
+<div class="mb-6 font-code-sm text-primary uppercase tracking-widest">Urgent Tier</div>
+<h3 class="font-headline-lg text-headline-lg mb-4 text-on-surface">Emergency Delivery</h3>
+<p class="text-on-surface-variant mb-8">Rapid turnaround for critical bugs, performance bottlenecks, or missing documentation. Delivery in 48-72 hours.</p>
+<div class="text-4xl font-bold mb-8 text-on-surface">$3,000<span class="text-lg font-normal opacity-60">/project</span></div>
+</div>
+<button class="w-full py-3 bg-surface border border-outline-variant text-on-surface font-bold hover:bg-surface-container transition-all">
+                        Contact Immediately
+                    </button>
+</div>
+</div>
+</section>
+<!-- Tech Stack Grid -->
+<section class="py-24 bg-surface-container border-y border-outline-variant">
+<div class="max-w-max-width mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 reveal">
+<div class="max-w-2xl">
+<h2 class="font-headline-xl text-headline-xl mb-4 text-on-surface">Polyglot Tech Stack</h2>
+<p class="text-on-surface-variant">While Python is the core of my architecture, modern systems require a distributed approach. I specialize in high-performance integrations across multiple environments.</p>
+</div>
+<div class="font-code-sm p-4 border border-outline-variant bg-surface-dim text-secondary">
+                        $ sysctl -a | grep technical_expertise
+                    </div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Java Card -->
+<div class="bg-surface-container-high border border-outline-variant p-8 group hover:bg-tertiary-container transition-colors reveal">
+<div class="w-12 h-12 bg-surface-dim flex items-center justify-center border border-outline-variant mb-6">
+<span class="material-symbols-outlined text-tertiary">terminal</span>
+</div>
+<h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-on-surface">Java</h4>
+<p class="text-on-surface-variant text-sm">Enterprise Core Systems</p>
+</div>
+<!-- Node Card -->
+<div class="bg-surface-container-high border border-outline-variant p-8 group hover:bg-secondary-container/20 transition-colors reveal">
+<div class="w-12 h-12 bg-surface-dim flex items-center justify-center border border-outline-variant mb-6">
+<span class="material-symbols-outlined text-secondary">javascript</span>
+</div>
+<h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-on-surface">Node.js</h4>
+<p class="text-on-surface-variant text-sm">Real-time Microservices</p>
+</div>
+<!-- Python Card -->
+<div class="bg-surface-container-high border border-outline-variant p-8 group hover:bg-primary/20 transition-colors reveal">
+<div class="w-12 h-12 bg-surface-dim flex items-center justify-center border border-outline-variant mb-6">
+<span class="material-symbols-outlined text-primary">data_object</span>
+</div>
+<h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-on-surface">Python</h4>
+<p class="text-on-surface-variant text-sm">AI &amp; Backend Architect</p>
+</div>
+<!-- Frameworks Card -->
+<div class="bg-surface-container-high border border-outline-variant p-8 group hover:bg-tertiary-container transition-colors reveal">
+<div class="w-12 h-12 bg-surface-dim flex items-center justify-center border border-outline-variant mb-6">
+<span class="material-symbols-outlined text-tertiary">layers</span>
+</div>
+<h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-on-surface">Frameworks</h4>
+<p class="text-on-surface-variant text-sm">Django, FastAPI, Spring</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Spotlight -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="bento-grid">
+<div class="col-span-12 md:col-span-7 bento-card reveal overflow-hidden p-0 h-[500px] flex flex-col border-outline-variant">
+<div class="p-8 border-b border-outline-variant bg-surface-container-high z-10">
+<span class="font-code-sm text-primary font-bold">CASE STUDY: INFRASTRUCTURE</span>
+<h3 class="font-headline-xl text-headline-xl mt-2 text-on-surface">Distributed Ledger for Ubuntu Systems</h3>
+</div>
+<div class="flex-grow bg-surface-container relative">
+<img alt="Server Racks" class="w-full h-full object-cover grayscale opacity-60 contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNS_KpB7ma2QbxAAeWtwJZ2zYi9AlWzVo00_sk862OSMoG7KWz1NFGAXQELuxScxg5_BIZyYRDqx-0ghtY38XGoTJst7Dk2dZBZ_XThz3auQYpVgTyAgur92BsKPXTsH064HSxPi3YWm4zQhM6ScVWYdWJAMfCZU92dODApL5mUYIXMSCtEDfRPhvmjOsUrvLDU4vKRuVt4K8rmYC3F5DuIHbX1Zu3Yx5WjbnHy-IILaEOp9qtNmX93AulYA2JGEY7F7boHp5OrzA"/>
+<div class="absolute inset-0 bg-primary/5"></div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-5 bento-card reveal bg-surface-container-highest text-on-surface border-outline-variant">
+<div class="flex flex-col h-full justify-between">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6">analytics</span>
+<h3 class="font-headline-lg text-headline-lg mb-6 text-on-surface">High-Density Analysis</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Implementing a Python-based data ingestion pipeline capable of processing 10k events per second with sub-millisecond latency. Built for a prominent foundation's open-source compliance engine.</p>
+</div>
+<div class="mt-12 space-y-4">
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-code-sm text-primary">STACK</span>
+<span class="font-code-sm text-on-surface">FastAPI / Rust / PostgreSQL</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-code-sm text-primary">DURATION</span>
+<span class="font-code-sm text-on-surface">4 Months</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-dim border-t border-outline-variant py-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-max-width mx-auto gap-8">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-lg text-headline-lg text-on-surface mb-2">DevLearner</span>
+<p class="font-code-sm text-code-sm text-on-surface-variant">© 2024 DevLearner Platform</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Resources</a>
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Discord</a>
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Twitter</a>
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+</div>
+</footer>
+<script>
+        // Typing Animation
+        const text = "Building Scalable Systems...";
+        const typingText = document.getElementById('typing-text');
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                typingText.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, 100);
+            } else {
+                setTimeout(() => {
+                    typingText.textContent = "";
+                    index = 0;
+                    type();
+                }, 3000);
+            }
+        }
+
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("DOMContentLoaded", () => {
+            type();
+            reveal(); // Initial check
+        });
+    </script>
+</body></html>

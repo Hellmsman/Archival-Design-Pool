@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Tech | Premium Electronics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Literata:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#ffb4a3",
+                      "on-surface-variant": "#434749",
+                      "surface-tint": "#586062",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#ffdad2",
+                      "inverse-surface": "#2e3132",
+                      "on-tertiary-fixed": "#3d0700",
+                      "on-surface": "#191c1d",
+                      "outline": "#747879",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#c1c8ca",
+                      "surface-bright": "#f8f9fa",
+                      "on-background": "#191c1d",
+                      "error-container": "#ffdad6",
+                      "primary": "#181f21",
+                      "tertiary-container": "#651503",
+                      "on-secondary-fixed": "#131d21",
+                      "on-tertiary-fixed-variant": "#812914",
+                      "on-secondary": "#ffffff",
+                      "background": "#f8f9fa",
+                      "surface-container": "#edeeef",
+                      "primary-container": "#2d3436",
+                      "on-primary-fixed": "#161d1f",
+                      "on-secondary-fixed-variant": "#3e484c",
+                      "surface-container-high": "#e7e8e9",
+                      "primary-fixed": "#dde4e6",
+                      "outline-variant": "#c3c7c8",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-container": "#596468",
+                      "surface-container-low": "#f3f4f5",
+                      "secondary": "#556064",
+                      "on-tertiary-container": "#ee7a5e",
+                      "on-primary-fixed-variant": "#41484a",
+                      "tertiary": "#410800",
+                      "secondary-fixed": "#d9e4e9",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-container": "#d6e2e6",
+                      "surface": "#f8f9fa",
+                      "inverse-primary": "#c1c8ca",
+                      "surface-container-highest": "#e1e3e4",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#e1e3e4",
+                      "inverse-on-surface": "#f0f1f2",
+                      "surface-dim": "#d9dadb",
+                      "secondary-fixed-dim": "#bdc8cd",
+                      "on-primary-container": "#959c9f",
+                      "error": "#ba1a1a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "gutter": "24px",
+                      "sm": "8px",
+                      "base": "4px",
+                      "xs": "4px",
+                      "container-max": "1280px",
+                      "xl": "32px",
+                      "xxl": "48px",
+                      "margin-mobile": "16px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "label-md": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "caption": ["Hanken Grotesk"],
+                      "display-lg": ["Literata"],
+                      "headline-sm": ["Literata"],
+                      "headline-md": ["Literata"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "display-lg-mobile": ["Literata"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bg-gradient-soft {
+            background: radial-gradient(circle at top left, #f3f4f5 0%, #e1e3e4 100%);
+        }
+        .book-card-glow:hover {
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.04);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="w-full top-0 z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant/30 sticky">
+<div class="flex justify-between items-center px-lg py-md max-w-container-max mx-auto">
+<div class="flex items-center gap-xl">
+<span class="font-display-lg text-display-lg font-bold text-primary dark:text-primary-fixed">Lumina Tech</span>
+<div class="hidden md:flex gap-lg">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Collections</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">New Arrivals</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">Authors</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">About Us</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="px-md py-sm rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all">Sign In</button>
+<button class="px-lg py-sm rounded bg-primary-container text-on-primary-container font-label-md text-label-md scale-95 active:scale-90 transition-transform">Sign Up</button>
+</div>
+</div>
+</nav>
+<main class="bg-gradient-soft">
+<!-- Hero Section -->
+<section class="relative overflow-hidden py-xxl md:py-[120px] px-lg">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-xxl items-center">
+<div class="z-10">
+<span class="inline-block px-sm py-xs bg-secondary-container text-on-secondary-container text-caption font-caption mb-md uppercase tracking-wider rounded">The Future of Library Gadgetry</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-lg text-primary leading-tight">Join the Innovation for a Smarter Lifestyle.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-xl">
+                        Experience the quiet sophistication of Lumina Tech. Our curated collection of high-end electronics bridges the gap between scholarly focus and cutting-edge performance.
+                    </p>
+<div class="flex flex-wrap gap-md">
+<button class="px-xl py-md bg-primary text-on-primary rounded font-label-md text-label-md hover:shadow-lg transition-all">Explore Collection</button>
+<button class="px-xl py-md border border-outline text-primary rounded font-label-md text-label-md hover:bg-surface-container transition-all">Watch the Film</button>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square w-full rounded-xl overflow-hidden shadow-2xl border border-white/20">
+<img alt="Premium Gadget Showcase" class="w-full h-full object-cover" data-alt="A high-end, minimalist studio shot of an elegant tablet and smart stylus resting on a dark marble surface. The lighting is moody and dramatic, with soft highlights catching the metallic edges of the devices. The overall color palette consists of deep charcoals, silvers, and subtle warm wood tones in the background. The aesthetic is extremely premium, scholarly, and modern corporate, reflecting a sophisticated digital workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkznT7Aqc62N9OAQRdF1Uu3uHha-WWJtHcqKanrZsC3T0CxGwn2l_E4fgR9HAAXPrpM9ghBtlfQk7zHxRg2NMmWzW16Z9fCCB9FX5umlATBvxZMl8IMYdnuJ3rSS0oTs7lHMMhlXIyWzOtrKkSh6DCKm-g6nV3Vz5JLAZbc2m4YkWDJ6ZRuoGnhtj9u4nsexhggablHFyDVxKTlr3spGM5hFnvceY9baKD-Vgcf7fE_SEng_HB87mDyqyja8idhE3b8xZGsMY93hM"/>
+</div>
+<div class="absolute -bottom-6 -left-6 p-lg bg-surface-container-lowest border border-outline-variant/30 rounded shadow-xl hidden md:block">
+<p class="font-label-md text-label-md text-primary">Next-Gen Audio Pro</p>
+<p class="font-caption text-caption text-on-surface-variant">Available Now</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Gadget Showcase Section -->
+<section class="py-xxl px-lg max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-xxl">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-sm">The Gadget Showcase</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">A disciplined collection of tools for the modern intellectual.</p>
+</div>
+<button class="flex items-center gap-sm font-label-md text-label-md text-primary">
+                    View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Responsive Bento-style Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Product Card Loop (Simulated) -->
+<!-- Item 1: Smart Watch -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded p-base book-card-glow transition-all duration-300 relative group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="bg-surface-container-low aspect-[4/5] overflow-hidden mb-md relative">
+<img alt="Lumina Watch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional product shot of a minimalist smart watch with a white silicone strap and a sleek black screen. The watch is placed on a textured grey background with soft cinematic lighting from the side. The image has a clean, airy feel consistent with a premium light-mode digital library aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlkBqtQ4m42WVkoA-PnvY-kXMUeo7nu4370ECmobVrLyNayffY6F4vZKVQ1Myz3PGCHfrX0qGaCqbTKaUF1WIlchiE5NK0Z-rhtkGFJQ3eXQ39h4p8ntaleBD8ifdorvN4gWlxJB_Yy8rf6-e5sNknZAfZScWqWa1S1lEG9vjcjnNcKjrHkdJYfShjIqhXMXJIJlHSnH2pFBQFWQmVPYmP8_4cpkGuKpZdyIqoryhls-ULT892e7O7ye0R38Q2zkKVoV_H_vZDc0k"/>
+</div>
+<div class="px-md pb-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-label-md text-label-md text-primary">Chronos Smart Watch</h3>
+<span class="text-tertiary-container text-label-md">$299</span>
+</div>
+<div class="flex items-center gap-xs mb-md">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-sm">(48)</span>
+</div>
+<button class="w-full py-sm border border-outline hover:bg-primary hover:text-on-primary transition-colors text-label-md rounded">Add to Collection</button>
+</div>
+</div>
+<!-- Item 2: Smart Glasses -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded p-base book-card-glow transition-all duration-300 relative group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="bg-surface-container-low aspect-[4/5] overflow-hidden mb-md">
+<img alt="Lumina Vision" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern high-tech smart glasses with thin black frames and subtle blue-tinted lenses. They are presented on a minimalist white pedestal against a soft grey gradient background. The lighting is diffused and professional, highlighting the sophisticated engineering of the frames in a corporate luxury style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBIqmXS4NI-ODPL9V2oE9lfLOkyDze1pDVHkb4VkvYFCP-oNJs0EH9XdhJWpwpx1r6Z_cvA7grx2_eof9beZhjGsUIpj-nOnMddOUJqv0nD2NpDBx-im4ZAgXExE0yj4_RHkPoIYILzJEGK4kt0ZFPGEYM94xBdenErpYIWmBpjMYGKsSAqv0CJR-xVRvCuUwVq3n5euhCetki4ycigGJ7Hlney8DkzkNWySxwE-pkb3IUho1vzqcvyvDo-Gm4pgVrt9q9LevHLSc"/>
+</div>
+<div class="px-md pb-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-label-md text-label-md text-primary">Vision Pro HUD</h3>
+<span class="text-tertiary-container text-label-md">$450</span>
+</div>
+<div class="flex items-center gap-xs mb-md">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-sm">(12)</span>
+</div>
+<button class="w-full py-sm border border-outline hover:bg-primary hover:text-on-primary transition-colors text-label-md rounded">Add to Collection</button>
+</div>
+</div>
+<!-- Item 3: Digital Clock -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded p-base book-card-glow transition-all duration-300 relative group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="bg-surface-container-low aspect-[4/5] overflow-hidden mb-md">
+<img alt="Lumina Clock" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sleek digital desk clock with a walnut wood finish and white LED numbers glowing through the grain. The setting is a minimalist library desk with a leather blotter and a single fountain pen. High-key lighting emphasizes the texture of the wood and the modern clarity of the display." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYLfYNmVHG6TR4Y6dFiyJePOg-W-Wih473D3S31p8bWQ0NwHUcpYvvXeyTihLhZygf96J0ug460AvA21U4Ek_PtR2D7iknqPjATD9BkdjJx6dsvLxq7m3GlJ2rOf1X5YoxlKhJvCo-hGL29vXhOS_-h8cs--h22xoWKvsSj5ri_8EhvRDEbRnnU-FYzRxvjDRopx3HJhv7eV9Gf7XGARZt097WKz3O4W_InQrZmNP4R4aTKapwr2nr6_a58yStZqXv5kx32hzgkr8"/>
+</div>
+<div class="px-md pb-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-label-md text-label-md text-primary">Tempo Wood Clock</h3>
+<span class="text-tertiary-container text-label-md">$89</span>
+</div>
+<div class="flex items-center gap-xs mb-md">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-sm">(102)</span>
+</div>
+<button class="w-full py-sm border border-outline hover:bg-primary hover:text-on-primary transition-colors text-label-md rounded">Add to Collection</button>
+</div>
+</div>
+<!-- Item 4: Headphones -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded p-base book-card-glow transition-all duration-300 relative group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary-fixed-dim"></div>
+<div class="bg-surface-container-low aspect-[4/5] overflow-hidden mb-md">
+<img alt="Lumina Audio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Matte charcoal over-ear noise-cancelling headphones resting on a stack of hardcover books. The aesthetic is academic and premium, with warm accent lighting and a shallow depth of field. The background is a blurred library shelf, creating a focused, scholarly mood for high-end audio enthusiasts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeT-Jhg0n4SfH5AQH6xITuViRqXy3WZDh9hzO5TtLI9A_4_2Tba6fi2eDxCudT48qgjmet_EgCHsSAkAnhQnL1Ym2a5h-G704DnXx5Q3s7MJgVpw1aaNfAS9mWBmH1C2DIx8trChq5qrA68mJAGRqPjNoaNKKJEEh6Uh-dinQReypEzrQGRf8QHAyz-ZhqY5ZBqeoD1flMbnGNjXSpGphMIVlv__Ef4-RXqn3RIJ1_hHvqFY22izXWBdGIa9Qpz1gEfRQjLr3NOSE"/>
+</div>
+<div class="px-md pb-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-label-md text-label-md text-primary">Symphony H1</h3>
+<span class="text-tertiary-container text-label-md">$349</span>
+</div>
+<div class="flex items-center gap-xs mb-md">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-sm">(256)</span>
+</div>
+<button class="w-full py-sm border border-outline hover:bg-primary hover:text-on-primary transition-colors text-label-md rounded">Add to Collection</button>
+</div>
+</div>
+<!-- 8 More Items to reach 12+ -->
+<!-- Gaming Mouse -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded p-base book-card-glow transition-all duration-300 relative group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary-fixed"></div>
+<div class="bg-surface-container-low aspect-[4/5] overflow-hidden mb-md">
+<img alt="Precision Mouse" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An ergonomic white gaming mouse with subtle RGB accents in a soft blue. It sits on a premium grey felt desk mat. The lighting is clean and bright, highlighting the curves and material quality of the product. The overall style is modern corporate combined with high-performance tech minimalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkiIixzf2v9a-4QyC6m6hr2S38L9tZzM6-zBP_FuuQTOxg50zHpAeE9aRIJ_UFb8JbqraCo1L4OpQh7splp7afdol2Tt8SxvugXob7-stZTr6ow6g5QwWbhB-cw4PgcvIUVCOWp64asdjsDm8I0VdVYhdB2IQdecLHScj7tpQPVkEddJPx5jTpKv3pk_FVI_USI_4rY37WK91xfdklY1A9buzPSh7CLyr3A_58RRiBG1t0B2FSGIIcdPoWvWu7cAVqIlVE4wvmLXI"/>
+</div>
+<div class="px-md pb-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-label-md text-label-md text-primary">Precision G-Alpha</h3>
+<span class="text-tertiary-container text-label-md">$120</span>
+</div>
+<div class="flex items-center gap-xs mb-md">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-sm">(89)</span>
+</div>
+<button class="w-full py-sm border border-outline hover:bg-primary hover:text-on-primary transition-colors text-label-md rounded">Add to Collection</button>
+</div>
+</div>
+<!-- Keyboard -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded p-base book-card-glow transition-all duration-300 relative group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-fixed"></div>
+<div class="bg-surface-container-low aspect-[4/5] overflow-hidden mb-md">
+<img alt="Mechanical Keyboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A custom mechanical keyboard with cream and grey keycaps, housed in a heavy silver aluminum frame. It is placed on a clean wooden desk with a small succulent in the background. The lighting is natural and bright, capturing the matte texture of the keycaps and the premium finish of the metal casing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA72Xv2ysJVVsWTTJjzzjo6OtUB6GR2s9KA7R7SINnmG21q4L80ZB2inDOp8I0W180WfQm8g3wv9YFXdCL8IECqQpxjClITtz3FJNLglj2xyWMixuupUOXxrGEfCUR8FKFHE8of-a8pzcnpUsRGLDqKGVfHiQYJ49mTLfMVBgH2KBYxqtT1G1PfSqtEtjXAdyGT6fa_cVRqi83anrQjqWFBu5-rbp1MlkKXJQv1SiIGOn0aL-hypgtCnQ8vUvXvFR2_nDb8nxQ_QLQ"/>
+</div>
+<div class="px-md pb-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-label-md text-label-md text-primary">Keybound Type S</h3>
+<span class="text-tertiary-container text-label-md">$210</span>
+</div>
+<div class="flex items-center gap-xs mb-md">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-sm">(42)</span>
+</div>
+<button class="w-full py-sm border border-outline hover:bg-primary hover:text-on-primary transition-colors text-label-md rounded">Add to Collection</button>
+</div>
+</div>
+<!-- Speaker -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded p-base book-card-glow transition-all duration-300 relative group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-outline"></div>
+<div class="bg-surface-container-low aspect-[4/5] overflow-hidden mb-md">
+<img alt="Smart Speaker" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A spherical smart speaker wrapped in premium grey fabric with a brushed aluminum base. It stands on a minimalist bookshelf next to some vintage books. The scene is illuminated by soft, directional light that emphasizes the fabric texture and the sleek circular form." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmWN1rJaLzlF_dxR4Ta6130jXVxpSVLKXlomWrWs3BICNPKztwN92QSZnATC8MtQPQSgY7G0S2wkvE1VB1nJhN-NDzMqanYQck7mH2aVZk-ntLe9BA6fEpu-QvuolXgXwhZTK4U50qAqhftGbkfui2MUnq-Wa1YpPTnztBERAazNe-_gIJUmlLSAMZ5INRYN8Ni-ZPoTnUUPpzzAEXNWbByS-gE9aCiAXCDSsFowt38UCo8yyfxLHK7p0HGElFv9AFaOfyhTd343I"/>
+</div>
+<div class="px-md pb-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-label-md text-label-md text-primary">Orbital Sound Pro</h3>
+<span class="text-tertiary-container text-label-md">$199</span>
+</div>
+<div class="flex items-center gap-xs mb-md">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-sm">(77)</span>
+</div>
+<button class="w-full py-sm border border-outline hover:bg-primary hover:text-on-primary transition-colors text-label-md rounded">Add to Collection</button>
+</div>
+</div>
+<!-- Repeat Logic to populate full grid -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded p-base book-card-glow transition-all duration-300 relative group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="bg-surface-container-low aspect-[4/5] overflow-hidden mb-md relative">
+<img alt="Tech Item" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern, minimalist laptop stand made of matte black aluminum. It is shown in a professional office setting with soft, high-key lighting. The style is clean, functional, and deeply corporate, appealing to professionals who value aesthetic order in their workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeBSuKH8XEFCxFxtIs_9-3d9gxqXUDrAVL1oeO5F-IlbQfmEQhMBa_--q_IaOm-eK6EKRLv93oYA4es-QKAB1DwxhTtIrpupX2zB8B0ETgdbkwvvjVkTb063Ub0ghmKpFNTT1dRO09AzKaA6BOer_MCrdfy-uiNCWVIHAtjPkSilDgiOFvq56C_85PPC_uj8rxha_Hy68D8qkF2yAcbGEr3Fz83rKiuGOctYZF6b_mElibDPFglGMiKkUYUPeLFYcwHmTKuA4pn9s"/>
+</div>
+<div class="px-md pb-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-label-md text-label-md text-primary">Elevate Stand</h3>
+<span class="text-tertiary-container text-label-md">$75</span>
+</div>
+<div class="flex items-center gap-xs mb-md">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-sm">(31)</span>
+</div>
+<button class="w-full py-sm border border-outline hover:bg-primary hover:text-on-primary transition-colors text-label-md rounded">Add to Collection</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded p-base book-card-glow transition-all duration-300 relative group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="bg-surface-container-low aspect-[4/5] overflow-hidden mb-md relative">
+<img alt="Tech Item" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up shot of an elegant white smartwatch with a metallic silver bezel. The display shows a minimalist clock face. The watch is presented on a bed of dark grey fabric, with professional studio lighting creating soft gradients and highlights on the metal surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeEXC0pj_FGRbunEgPbr3nWsXbrI-qcEbuzYEwwGSS0O2W8LL-5_Ys1WslJ0PPEhmxVEwWQqFbIAmAQ0BDnFL-DTWrCcM2cziGL9JDE8FUelNrSdD2A34zlbOqqufxpXqFut5qEcZwbgv-WlKzGxhFrbI80B96Yyx0b7bZJWm_5Abk67URGdHqjzBkqw1wbMaOASkMLsK8ODnnKJqcmaemLMsZ7sOvgHtpYaud1k29ZSmv-oRU2qcd5pzOwpnHeYpa7WQVxJdNHug"/>
+</div>
+<div class="px-md pb-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-label-md text-label-md text-primary">Luna Series 2</h3>
+<span class="text-tertiary-container text-label-md">$315</span>
+</div>
+<div class="flex items-center gap-xs mb-md">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-sm">(154)</span>
+</div>
+<button class="w-full py-sm border border-outline hover:bg-primary hover:text-on-primary transition-colors text-label-md rounded">Add to Collection</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded p-base book-card-glow transition-all duration-300 relative group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="bg-surface-container-low aspect-[4/5] overflow-hidden mb-md relative">
+<img alt="Tech Item" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A pair of high-fidelity wireless earbuds in a sleek, minimalist charging case made of matte black plastic. The case is open, revealing the earbuds nested inside. The composition is clean and centered, with bright, clinical lighting that highlights the precision of the manufacturing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3oWBaTBMdwgGNLcl5gjq4PL_THpkpMqZkuOkkzGbx091cID7kjdJaQK_uIu1oXakiVnvp8Z6HzpqErrRLdO2F-lHuQqM8h_BHbN484soqVda_e870Vqi0fD5Tq_Ah6GcSAeGCqK6X8LDC08DGFWdU_1CiR6VuPtEYa8N7B70qVdoUV-ToiuNkW3B-DkvntTr4U2lGMe0xSoIzqNfugqtxuDEviFCTHl-0p3Z3YOS5sqXuR1EjJgyzoa3fnAeqE66UN5a-n1zbfec"/>
+</div>
+<div class="px-md pb-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-label-md text-label-md text-primary">Sonic Buds Pro</h3>
+<span class="text-tertiary-container text-label-md">$159</span>
+</div>
+<div class="flex items-center gap-xs mb-md">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-sm">(210)</span>
+</div>
+<button class="w-full py-sm border border-outline hover:bg-primary hover:text-on-primary transition-colors text-label-md rounded">Add to Collection</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded p-base book-card-glow transition-all duration-300 relative group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary-fixed-dim"></div>
+<div class="bg-surface-container-low aspect-[4/5] overflow-hidden mb-md relative">
+<img alt="Tech Item" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vintage-inspired digital camera with a silver metal body and black leather grip. It is placed on a minimalist white desk next to a stack of art magazines. The lighting is soft and warm, creating a nostalgic yet high-tech aesthetic that bridges classic design with modern digital capabilities." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfvXfjgauV2N3WmGjaaVAuJvOka_6e-SrORzFUK75SfqZCz2SLwp2ah0KZY6pYnQD6DHOWXx8S2GYUk7YuvH6cfsAgDnOIIEqsoEkfwxXcwLrcMptCKYXwj_sY0k303hTCUaofn2mYtSYwB1_C7P9_CnUwGd6UUGNoLndIyyEV3CUxDxorKRrMw_tDtuc6qBwpbpAXjiu7mLiEMJkS5BaI6ZoVak_SrdHgCLuiUn217TAm6qTjVBblNHq_5MoZjLv68iD-gZx4g9k"/>
+</div>
+<div class="px-md pb-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-label-md text-label-md text-primary">Capture Mark III</h3>
+<span class="text-tertiary-container text-label-md">$899</span>
+</div>
+<div class="flex items-center gap-xs mb-md">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-sm">(19)</span>
+</div>
+<button class="w-full py-sm border border-outline hover:bg-primary hover:text-on-primary transition-colors text-label-md rounded">Add to Collection</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded p-base book-card-glow transition-all duration-300 relative group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary-fixed"></div>
+<div class="bg-surface-container-low aspect-[4/5] overflow-hidden mb-md relative">
+<img alt="Tech Item" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A premium leather watch roll holding three different luxury smartwatches. The roll is made of rich tan leather with soft suede lining. The scene is shot from a top-down perspective on a dark oak wooden surface, with a focus on the craftsmanship of the leather and the sleek faces of the watches." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFVLjdSYzCROxFTTb3tvEU11YCQs__o7IPP6xbc8hCqnAm966RvaPJlBWHxO7vcYlRn5t9-e6jZ-XqvA9sqDWnPsdLESHEokyOmM4Sy0v4Xcm1aR4wxMpYGRaKc0oqxiizbYl8EjRy1DB39HKhJB0dxQtVO0ZB5wH2euDbNNHKnKfZY2EQvvBsktsdJTxfUOVNax1moqQcspS7bfU9YtnRSTGq63LlkCS5IFNmietFs3NDR6DhSKSj4f8VClGwuIIlfFsBk5vG2PY"/>
+</div>
+<div class="px-md pb-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-label-md text-label-md text-primary">Collector's Case</h3>
+<span class="text-tertiary-container text-label-md">$145</span>
+</div>
+<div class="flex items-center gap-xs mb-md">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-sm">(65)</span>
+</div>
+<button class="w-full py-sm border border-outline hover:bg-primary hover:text-on-primary transition-colors text-label-md rounded">Add to Collection</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Membership Tiers Section -->
+<section class="py-xxl bg-surface-container-low px-lg">
+<div class="max-w-container-max mx-auto text-center mb-xl">
+<h2 class="font-headline-md text-headline-md text-primary mb-sm">Lumina Membership</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Unlock exclusive library access and early tech releases.</p>
+</div>
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Standard -->
+<div class="bg-surface-container-lowest p-xl rounded border border-outline-variant/30 flex flex-col items-center text-center">
+<span class="font-label-md text-label-md text-on-surface-variant mb-base">Standard</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-md">$0 / mo</h3>
+<ul class="font-caption text-caption text-on-surface-variant space-y-sm mb-xl">
+<li>Basic Technical Support</li>
+<li>Standard Delivery</li>
+<li>1-Year Warranty</li>
+</ul>
+<button class="mt-auto w-full py-md border border-outline rounded font-label-md text-label-md hover:bg-surface-container transition-all">Current Plan</button>
+</div>
+<!-- Premium -->
+<div class="bg-surface-container-lowest p-xl rounded border-2 border-primary flex flex-col items-center text-center relative shadow-lg">
+<div class="absolute -top-4 px-md py-xs bg-primary text-on-primary text-caption font-caption rounded-full">Most Popular</div>
+<span class="font-label-md text-label-md text-primary mb-base">Premium</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-md">$19 / mo</h3>
+<ul class="font-caption text-caption text-on-surface-variant space-y-sm mb-xl">
+<li>Priority Technical Support</li>
+<li>Expedited Delivery</li>
+<li>2-Year Extended Warranty</li>
+<li>Early Access to Drops</li>
+</ul>
+<button class="mt-auto w-full py-md bg-primary text-on-primary rounded font-label-md text-label-md shadow-md hover:opacity-90 transition-all">Upgrade Now</button>
+</div>
+<!-- Deluxe -->
+<div class="bg-surface-container-lowest p-xl rounded border border-outline-variant/30 flex flex-col items-center text-center">
+<span class="font-label-md text-label-md text-on-surface-variant mb-base">Deluxe</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-md">$49 / mo</h3>
+<ul class="font-caption text-caption text-on-surface-variant space-y-sm mb-xl">
+<li>24/7 Concierge Support</li>
+<li>Free Global Shipping</li>
+<li>Lifetime Warranty</li>
+<li>Private Collection Previews</li>
+</ul>
+<button class="mt-auto w-full py-md border border-outline rounded font-label-md text-label-md hover:bg-surface-container transition-all">Join Deluxe</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xxl bg-surface-container-lowest dark:bg-surface-container-highest border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-lg grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Brand & Address -->
+<div class="flex flex-col gap-md">
+<span class="font-display-lg text-display-lg text-primary">Lumina Tech</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    1248 Innovation Way<br/>
+                    Silicon District, Tech City 90210<br/>
+                    United States
+                </p>
+<p class="font-caption text-caption text-on-surface-variant">© 2024 Lumina Digital Library. All rights reserved.</p>
+</div>
+<!-- Quick Links -->
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-md text-label-md text-primary mb-sm">Company</h4>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Contact Us</a>
+</div>
+<!-- Support -->
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-md text-label-md text-primary mb-sm">Support</h4>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Help Center</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Delivery Info</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Technical Support</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Warranty Claims</a>
+</div>
+<!-- Social -->
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-md text-label-md text-primary mb-sm">Connect</h4>
+<div class="flex gap-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Facebook</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Twitter</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Instagram</a>
+</div>
+<div class="mt-md">
+<p class="font-caption text-caption text-on-surface-variant mb-base">Subscribe to our Library Journal</p>
+<div class="flex gap-base">
+<input class="bg-surface-container-low border-none rounded p-sm font-caption text-caption w-full focus:ring-1 focus:ring-primary" placeholder="Email" type="email"/>
+<button class="bg-primary text-on-primary px-md rounded material-symbols-outlined">send</button>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interactions for product cards
+        document.querySelectorAll('.book-card-glow').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevLearner | Code in Your Dreams</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "surface-container-high": "#e8e8e8",
+                    "tertiary-container": "#bec9e5",
+                    "primary-container": "#ffbf00",
+                    "tertiary-fixed": "#d7e2ff",
+                    "primary": "#795900",
+                    "inverse-on-surface": "#f1f1f1",
+                    "surface-tint": "#795900",
+                    "on-tertiary-container": "#49546b",
+                    "on-secondary-fixed": "#002105",
+                    "on-secondary-fixed-variant": "#005316",
+                    "inverse-primary": "#fbbc00",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "surface-variant": "#e2e2e2",
+                    "on-tertiary-fixed-variant": "#3c475d",
+                    "secondary-fixed-dim": "#7edb7f",
+                    "on-tertiary-fixed": "#101b30",
+                    "secondary-fixed": "#99f899",
+                    "surface-container-low": "#f3f3f3",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#d4c5ab",
+                    "surface": "#f9f9f9",
+                    "primary-fixed-dim": "#fbbc00",
+                    "outline": "#827660",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#545e76",
+                    "on-background": "#1b1b1b",
+                    "primary-fixed": "#ffdfa0",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#6d5000",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#5c4300",
+                    "on-surface": "#1b1b1b",
+                    "on-secondary-container": "#0f7427",
+                    "surface-container-highest": "#e2e2e2",
+                    "tertiary-fixed-dim": "#bbc6e2",
+                    "surface-dim": "#dadada",
+                    "secondary-container": "#99f899",
+                    "on-surface-variant": "#504532",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#016e21",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#303030",
+                    "on-primary-fixed": "#261a00",
+                    "background": "#f9f9f9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "base": "8px",
+                    "gutter": "16px",
+                    "margin-mobile": "16px",
+                    "max-width": "1280px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Space Grotesk"],
+                    "code-sm": ["Space Mono"],
+                    "headline-lg": ["Space Grotesk"],
+                    "headline-lg-mobile": ["Space Grotesk"],
+                    "body-md": ["Space Grotesk"],
+                    "headline-xl": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "code-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px #1b1b1b;
+        }
+        .hard-shadow-sm {
+            box-shadow: 2px 2px 0px #1b1b1b;
+        }
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<nav class="bg-surface docked full-width top-0 h-16 border-b border-on-surface z-50 fixed w-full">
+<div class="flex justify-between items-center px-margin-desktop w-full max-w-max-width mx-auto h-full">
+<div class="flex items-center gap-8">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">DevLearner</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary-container pb-1 font-bold" href="#">Pathways</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Editor</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Community</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-label-caps text-label-caps px-4 py-2 border border-on-surface hover:bg-surface-variant transition-all Active:scale-95">Sign Up</button>
+<button class="font-label-caps text-label-caps px-4 py-2 bg-primary-container text-on-primary-container border border-on-surface hard-shadow-sm hover:translate-y-[-1px] transition-all Active:translate-y-[1px] Active:shadow-none">Start Learning</button>
+</div>
+</div>
+</nav>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex flex-col justify-center items-center text-center px-margin-mobile md:px-margin-desktop bg-surface-container-low border-b border-on-surface overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#1b1b1b 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="z-10 max-w-4xl">
+<h1 class="font-headline-xl text-headline-xl mb-6 typing-cursor" id="hero-title"></h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-10 max-w-lg mx-auto">The technical path to mastery. High-fidelity environments built for the modern engineer.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="font-label-caps text-label-caps px-8 py-4 bg-primary-container text-on-primary-container border border-on-surface hard-shadow font-bold text-lg flex items-center gap-2 hover:translate-y-[-2px] transition-all">
+                        EXPLORE PATHWAYS
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="font-label-caps text-label-caps px-8 py-4 bg-secondary-container text-on-secondary-container border border-on-surface hard-shadow font-bold text-lg flex items-center gap-2 hover:translate-y-[-2px] transition-all">
+                        TRY EDITOR
+                        <span class="material-symbols-outlined">code</span>
+</button>
+</div>
+</div>
+<!-- Floating Decoration Elements -->
+<div class="absolute -bottom-12 -left-12 w-64 h-64 bg-tertiary-fixed border border-on-surface rounded-full opacity-20 blur-3xl"></div>
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-primary-fixed border border-on-surface rounded-full opacity-20 blur-3xl"></div>
+</section>
+<!-- Popular Pathways -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto reveal">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-2">Popular Pathways</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Structured curriculum for deep domain expertise.</p>
+</div>
+<a class="font-label-caps text-label-caps text-primary border-b border-primary hover:opacity-70 transition-opacity" href="#">VIEW ALL TRACKS</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- React Card -->
+<div class="bg-surface-container-lowest border border-on-surface group hover:hard-shadow transition-all duration-300">
+<div class="h-48 overflow-hidden border-b border-on-surface relative">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" data-alt="A clean top-down view of a developer's minimalist workspace featuring a glowing laptop screen displaying a complex React code component. The lighting is high-key and crisp with sharp shadows, reflecting a modern light-mode tech aesthetic. Subtle light blue accents fill the background, maintaining a professional and systematic atmosphere of technical mastery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgdvkmEe482W6OMC4iNmCB82Oq-9_8I9JC6V93Z44P0ntGQllGUAOLhYeMjqIH9fEyMXWPMc0B5VN8oT1txHZvb8wm_voHPzdTJsAzqTYriTc8k6v7wn4E7Zui0sjATwj6iMPSL-azGFUe2uJJ-aNP6B9v2qN1YYCNeuXfoHXnNY5SpggyP0Z_bsovsXPTHEizwZYAegK8AcET5rCvhx1qc0cZkQQc1MFGMyIcx235eL5_HANkzCQN-NfGf-iwXCHVHUDShzQuojw"/>
+<div class="absolute top-4 right-4 bg-on-surface text-surface text-[10px] px-2 py-1 font-code-sm uppercase">Frontend</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-lg text-2xl mb-2">React Mastery</h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-6">Component architecture, hooks deep-dive, and performance patterns.</p>
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 45h</span>
+<button class="font-label-caps text-label-caps px-4 py-2 border border-on-surface bg-primary-container hard-shadow-sm hover:translate-x-[2px] transition-all">ENROLL</button>
+</div>
+</div>
+</div>
+<!-- Python Card -->
+<div class="bg-surface-container-lowest border border-on-surface group hover:hard-shadow transition-all duration-300">
+<div class="h-48 overflow-hidden border-b border-on-surface relative">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" data-alt="A conceptual digital illustration of abstract Python code floating in a bright, structured space with clean black outlines. The visual style follows technical minimalism with a palette of soft whites and sharp black borders. Data streams are represented by elegant geometric lines in light green and amber, creating a sense of systematic progress and professional focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgk-fusTqecIneGtP6BF9oYqOupaavhPFkPcSP2N2JZieHafDIjGVkYkMZXSLYMCvW5s2-yfJq2JawPFtwtq3du-U4nQVzVQWtFM6lj6aRhNEUofjIEcVzE-b33nLqVTdgFWl9dE1FINnIaI30ZE9pJizdpBFD69ZXYFPIQ4UNJbWhprTw5mx7ZObnDUc8ZuhYQgOFHqxBNlkRifykgzQct10bYStchFKNlXfLqG2iTXbLQcamdXs_qX5F_kl6oYf5HH8l7KIlHos"/>
+<div class="absolute top-4 right-4 bg-on-surface text-surface text-[10px] px-2 py-1 font-code-sm uppercase">Backend</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-lg text-2xl mb-2">Python for Engineers</h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-6">Mastering data structures, async programming, and enterprise APIs.</p>
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 32h</span>
+<button class="font-label-caps text-label-caps px-4 py-2 border border-on-surface bg-primary-container hard-shadow-sm hover:translate-x-[2px] transition-all">ENROLL</button>
+</div>
+</div>
+</div>
+<!-- System Design -->
+<div class="bg-surface-container-lowest border border-on-surface group hover:hard-shadow transition-all duration-300">
+<div class="h-48 overflow-hidden border-b border-on-surface relative">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" data-alt="A detailed architectural blueprint of a high-scale cloud system rendered in a minimalist light-mode style. The diagram uses crisp black lines, clean white backgrounds, and subtle light blue shading for infrastructure components. The lighting is soft and even, highlighting the structural clarity and informational density of the design system's aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWBUIkOEvww3HYPF-TZ31cEqSvKZFs5EazLio48VumBT7fcXicxLePeUxT4SeGHDS2A7Y4pA_dCl_OE8eaJWm0HBsrNmpeeNrYxyvuC8CUFycUR9ubrW1_BcMyV3TD8EPSA48zhR1sY_K-cdI8Jd3Q2t4fvrdX3KeeEoUAot4gLSYsMdJPCGCuAF_GhaMEhl4Wd5GwCFr63-LL_4f0e1ZSzUSUamuX8jx8kzGkkB6FieVdWFjyl4szN01MwKJiytegQFFko87Igx8"/>
+<div class="absolute top-4 right-4 bg-on-surface text-surface text-[10px] px-2 py-1 font-code-sm uppercase">Architecture</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-lg text-2xl mb-2">System Design</h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-6">Designing distributed systems, scalability, and high availability.</p>
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 60h</span>
+<button class="font-label-caps text-label-caps px-4 py-2 border border-on-surface bg-primary-container hard-shadow-sm hover:translate-x-[2px] transition-all">ENROLL</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Editor Preview -->
+<section class="py-24 bg-surface-container border-y border-on-surface reveal">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<div class="bg-[#F1F5F9] border-2 border-on-surface rounded-xl overflow-hidden hard-shadow">
+<!-- Editor Header -->
+<div class="flex items-center justify-between px-4 py-3 bg-surface border-b-2 border-on-surface">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full border border-on-surface bg-red-400"></div>
+<div class="w-3 h-3 rounded-full border border-on-surface bg-yellow-400"></div>
+<div class="w-3 h-3 rounded-full border border-on-surface bg-green-400"></div>
+</div>
+<span class="font-code-sm text-xs opacity-50">devlearner_snippet.tsx</span>
+<div class="w-12"></div>
+</div>
+<!-- Editor Body -->
+<div class="p-6 font-code-sm text-code-sm leading-relaxed overflow-x-auto whitespace-pre">
+<span class="text-blue-600">const</span> <span class="text-primary">DevLearner</span> = () =&gt; {
+  <span class="text-blue-600">const</span> [mastery, setMastery] = <span class="text-secondary">useState</span>(<span class="text-orange-600">0</span>);
+
+  <span class="text-secondary">useEffect</span>(() =&gt; {
+    <span class="text-blue-600">const</span> interval = <span class="text-secondary">setInterval</span>(() =&gt; {
+      <span class="text-secondary">setMastery</span>(m =&gt; (m &lt; <span class="text-orange-600">100</span> ? m + <span class="text-orange-600">1</span> : <span class="text-orange-600">100</span>));
+    }, <span class="text-orange-600">100</span>);
+    <span class="text-blue-600">return</span> () =&gt; <span class="text-secondary">clearInterval</span>(interval);
+  }, []);
+
+  <span class="text-blue-600">return</span> (
+    <span class="text-gray-400">&lt;</span><span class="text-green-700">ProgressBar</span> <span class="text-purple-600">value</span>={mastery} <span class="text-gray-400">/&gt;</span>
+  );
+};</div>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<h2 class="font-headline-lg text-headline-lg mb-6">Interactive Editor</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Stop watching, start writing. Our cloud-native IDE provides real-time feedback, linting, and automated testing for every line of code you write. Experience an environment that mirrors a professional developer workflow.</p>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-3 font-label-caps">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+                            REAL-TIME COMPILATION
+                        </li>
+<li class="flex items-center gap-3 font-label-caps">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+                            INTEGRATED DEBUGGER
+                        </li>
+<li class="flex items-center gap-3 font-label-caps">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+                            VS CODE KEYBINDINGS
+                        </li>
+</ul>
+<button class="font-label-caps text-label-caps px-8 py-4 bg-secondary-container text-on-secondary-container border-2 border-on-surface hard-shadow font-bold hover:translate-y-[-2px] transition-all">LAUNCH SANDBOX</button>
+</div>
+</div>
+</section>
+<!-- Community Pulse -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto reveal">
+<h2 class="font-headline-lg text-headline-lg text-center mb-16">Community Pulse</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Activity Card 1 -->
+<div class="p-6 bg-surface border border-on-surface relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2 opacity-5">
+<span class="material-symbols-outlined text-6xl">groups</span>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 border border-on-surface bg-tertiary-container flex items-center justify-center font-bold">A</div>
+<div>
+<p class="font-label-caps text-[10px]">Alex M.</p>
+<p class="font-code-sm text-[10px] text-on-surface-variant">2m ago</p>
+</div>
+</div>
+<p class="font-body-md text-sm mb-4 italic">"Just finished the System Design capstone. The load balancing module was a game changer!"</p>
+<div class="flex items-center gap-2 text-xs font-code-sm text-secondary">
+<span class="material-symbols-outlined text-sm">stars</span>
+<span>Level 14 Engineer</span>
+</div>
+</div>
+<!-- Activity Card 2 -->
+<div class="p-6 bg-surface border border-on-surface relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2 opacity-5">
+<span class="material-symbols-outlined text-6xl">forum</span>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 border border-on-surface bg-secondary-container flex items-center justify-center font-bold">S</div>
+<div>
+<p class="font-label-caps text-[10px]">Sarah Chen</p>
+<p class="font-code-sm text-[10px] text-on-surface-variant">15m ago</p>
+</div>
+</div>
+<p class="font-body-md text-sm mb-4">Posted a new solution: "Optimizing O(n log n) sorting in TypeScript"</p>
+<div class="flex items-center gap-2 text-xs font-code-sm text-primary">
+<span class="material-symbols-outlined text-sm">chat_bubble</span>
+<span>24 Replies</span>
+</div>
+</div>
+<!-- Activity Card 3 -->
+<div class="p-6 bg-surface border border-on-surface relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2 opacity-5">
+<span class="material-symbols-outlined text-6xl">terminal</span>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 border border-on-surface bg-primary-fixed flex items-center justify-center font-bold">J</div>
+<div>
+<p class="font-label-caps text-[10px]">Jordan T.</p>
+<p class="font-code-sm text-[10px] text-on-surface-variant">1h ago</p>
+</div>
+</div>
+<p class="font-body-md text-sm mb-4 italic">"The daily challenge today was intense! Finally mastered the sliding window pattern."</p>
+<div class="flex items-center gap-2 text-xs font-code-sm text-secondary">
+<span class="material-symbols-outlined text-sm">verified</span>
+<span>Daily Streak: 42</span>
+</div>
+</div>
+<!-- Activity Card 4 -->
+<div class="p-6 bg-surface border border-on-surface relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2 opacity-5">
+<span class="material-symbols-outlined text-6xl">school</span>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 border border-on-surface bg-tertiary-fixed flex items-center justify-center font-bold">L</div>
+<div>
+<p class="font-label-caps text-[10px]">Leo Kim</p>
+<p class="font-code-sm text-[10px] text-on-surface-variant">3h ago</p>
+</div>
+</div>
+<p class="font-body-md text-sm mb-4">Earned Badge: "The Architect" (System Design Expert)</p>
+<div class="flex items-center gap-2 text-xs font-code-sm text-primary">
+<span class="material-symbols-outlined text-sm">military_tech</span>
+<span>Achievement</span>
+</div>
+</div>
+</div>
+<div class="mt-16 bg-on-surface text-surface p-12 text-center border-2 border-on-surface hard-shadow">
+<h3 class="font-headline-lg text-2xl mb-4">Join 50,000+ developers learning today.</h3>
+<p class="font-body-md mb-8 opacity-70">Collaborate, share solutions, and build your portfolio with the global community.</p>
+<button class="font-label-caps text-label-caps px-8 py-4 bg-primary-container text-on-primary-container border border-surface hard-shadow-sm font-bold text-lg hover:bg-opacity-90 transition-all">JOIN THE DISCORD</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container w-full py-12 border-t border-on-surface">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-max-width mx-auto">
+<div class="mb-8 md:mb-0">
+<span class="font-headline-lg text-headline-lg text-on-surface mb-2 block">DevLearner</span>
+<p class="font-code-sm text-code-sm text-on-tertiary-container">© 2024 DevLearner Platform</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-code-sm text-code-sm text-on-tertiary-container hover:text-secondary transition-colors" href="#">Resources</a>
+<a class="font-code-sm text-code-sm text-on-tertiary-container hover:text-secondary transition-colors" href="#">Discord</a>
+<a class="font-code-sm text-code-sm text-on-tertiary-container hover:text-secondary transition-colors" href="#">Twitter</a>
+<a class="font-code-sm text-code-sm text-on-tertiary-container hover:text-secondary transition-colors" href="#">Privacy</a>
+<a class="font-code-sm text-code-sm text-on-tertiary-container hover:text-secondary transition-colors" href="#">Terms</a>
+</div>
+</div>
+</footer>
+<script>
+        // Typing animation for Hero
+        const heroTitle = document.getElementById('hero-title');
+        const text = "Code in Your Dreams";
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                heroTitle.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, 100);
+            }
+        }
+        
+        // Initial delay for typing effect
+        setTimeout(type, 500);
+
+        // Fade-in on scroll animation (Intersection Observer)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Interactive hover effect for hard shadows
+        document.querySelectorAll('.hard-shadow').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translate(-2px, -2px)';
+                card.style.boxShadow = '6px 6px 0px #1b1b1b';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translate(0px, 0px)';
+                card.style.boxShadow = '4px 4px 0px #1b1b1b';
+            });
+        });
+    </script>
+</body></html>

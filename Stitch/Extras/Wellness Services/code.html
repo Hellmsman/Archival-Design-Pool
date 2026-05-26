@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura Wellness | Holistic Medicine &amp; Yoga</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#d4c3c2",
+                    "on-secondary-fixed": "#001b3d",
+                    "on-tertiary-container": "#aa255d",
+                    "secondary-fixed": "#d6e3ff",
+                    "on-secondary-container": "#445a7f",
+                    "secondary-container": "#bcd2fd",
+                    "tertiary-fixed": "#ffd9e2",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#ffc6d4",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#e8e8e8",
+                    "on-tertiary-fixed-variant": "#8d0648",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-bright": "#f9f9f9",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#504444",
+                    "on-primary-fixed": "#2d1415",
+                    "primary-container": "#f7cac9",
+                    "surface-tint": "#785655",
+                    "tertiary-fixed-dim": "#ffb1c7",
+                    "background": "#f9f9f9",
+                    "on-background": "#1a1c1c",
+                    "surface-dim": "#dadada",
+                    "surface-variant": "#e2e2e2",
+                    "primary-fixed": "#ffdad9",
+                    "on-tertiary-fixed": "#3f001c",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#e8bcbb",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#5e3f3e",
+                    "secondary": "#495f84",
+                    "inverse-primary": "#e8bcbb",
+                    "surface-container": "#eeeeee",
+                    "on-secondary-fixed-variant": "#31476b",
+                    "surface-container-low": "#f3f3f3",
+                    "surface": "#f9f9f9",
+                    "primary": "#785655",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#755353",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#b1c7f2",
+                    "inverse-surface": "#2f3131",
+                    "tertiary": "#ad2860",
+                    "on-surface": "#1a1c1c",
+                    "outline": "#827473"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "section-gap": "80px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Libre Caslon Text"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Libre Caslon Text"],
+                    "headline-lg": ["Libre Caslon Text"],
+                    "label-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-md": ["Libre Caslon Text"],
+                    "body-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .organic-shape-1 {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        .organic-shape-2 {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+        .glass-header {
+            background: rgba(249, 249, 249, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f9f9f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e8bcbb;
+            border-radius: 10px;
+        }
+        .testimonial-slider {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 glass-header">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+<div class="font-display-lg text-headline-md font-bold text-primary">
+                Aura Wellness
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-lg text-label-lg text-primary border-b-2 border-primary pb-1" href="#">Home</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors" href="#">Yoga Classes</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors" href="#">Medical Services</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors" href="#">Holistic Guidance</a>
+</div>
+<button class="bg-tertiary text-on-tertiary px-6 py-3 rounded-full font-label-lg text-label-lg hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-tertiary/20">
+                Book an Appointment
+            </button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center px-margin-mobile md:px-margin-desktop py-section-gap overflow-hidden">
+<div class="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-6 z-10 space-y-8 animate-in fade-in slide-in-from-left duration-1000">
+<div class="inline-flex items-center gap-2 bg-primary-container/30 px-4 py-2 rounded-full text-on-primary-container font-label-lg">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                        Integrating Science &amp; Soul
+                    </div>
+<h1 class="font-display-lg text-[56px] md:text-[72px] leading-[1.1] text-primary">
+                        Balance Your <br/>Body and Mind
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                        Experience a sanctuary where modern clinical precision meets the timeless fluidity of yoga practice. Elevate your well-being through our unified approach to health.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-tertiary text-on-tertiary px-8 py-4 rounded-full font-label-lg text-label-lg hover:shadow-xl transition-all active:scale-95">
+                            Start Your Journey
+                        </button>
+<button class="border border-secondary text-secondary px-8 py-4 rounded-full font-label-lg text-label-lg hover:bg-secondary/5 transition-all">
+                            View Classes
+                        </button>
+</div>
+</div>
+<div class="lg:col-span-6 relative mt-12 lg:mt-0">
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-primary-container/40 blur-3xl organic-shape-1"></div>
+<div class="absolute -bottom-12 -left-12 w-72 h-72 bg-secondary-container/30 blur-3xl organic-shape-2"></div>
+<div class="relative rounded-[40px] overflow-hidden shadow-2xl z-10 transform lg:rotate-2 hover:rotate-0 transition-transform duration-700">
+<img alt="Holistic health products and stethoscope" class="w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDllrwNQEtSF9H4qEsf4hvyxz23pdqWbAi1cUDxFI6awghE0IH7DxTh6sz0MqfLbIEK93VnrTxcmUtkM20pcwd9Ssj-GrMswI2ru2NSw6ySeiU9uCQ_Ybe-dc9a25uvRabumjIGFFpN0u_bVX2OJZ3IrbBGcX9dICnof1KGOAxmINtW0mSnmhY-dvzACe8rYo4ZaMcLXw2wqnFS4nk-5b7RbPWriLtpOsQvImEHIU1AhZRG6PHjO_CAZNVr1BK4IxuD3SumUsMDdTs"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section (Bento Grid) -->
+<section class="px-margin-mobile md:px-margin-desktop py-section-gap bg-surface-container-low">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16 max-w-2xl mx-auto space-y-4">
+<h2 class="font-display-lg text-display-lg text-primary">Personalized Wellness Services</h2>
+<p class="text-on-surface-variant">We offer a curated selection of treatments designed to nurture your physical health and mental clarity simultaneously.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Service 1 -->
+<div class="md:col-span-2 bg-surface p-10 rounded-[32px] flex flex-col justify-between hover:translate-y-[-8px] transition-all duration-300 border border-outline-variant/30">
+<div class="space-y-4">
+<div class="w-14 h-14 bg-secondary-container flex items-center justify-center rounded-2xl text-on-secondary-container">
+<span class="material-symbols-outlined text-3xl">medical_services</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Holistic Medical Consultation</h3>
+<p class="text-on-surface-variant">Deep-dive medical assessments that consider your lifestyle, environment, and physical history for a truly individual care plan.</p>
+</div>
+<a class="mt-8 inline-flex items-center gap-2 text-tertiary font-label-lg hover:gap-3 transition-all" href="#">Learn more <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<!-- Service 2 -->
+<div class="md:col-span-2 bg-primary-container/20 p-10 rounded-[32px] flex flex-col justify-between hover:translate-y-[-8px] transition-all duration-300">
+<div class="space-y-4">
+<div class="w-14 h-14 bg-primary flex items-center justify-center rounded-2xl text-on-primary">
+<span class="material-symbols-outlined text-3xl">self_improvement</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Personalized Yoga Flows</h3>
+<p class="text-on-surface-variant">Vinyasa and Hatha practices tailored to your body's specific needs, focusing on mobility, strength, and rhythmic breathing.</p>
+</div>
+<a class="mt-8 inline-flex items-center gap-2 text-tertiary font-label-lg hover:gap-3 transition-all" href="#">Book session <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<!-- Service 3 -->
+<div class="md:col-span-2 bg-secondary-container/10 p-10 rounded-[32px] flex flex-col justify-between hover:translate-y-[-8px] transition-all duration-300 border border-outline-variant/30">
+<div class="space-y-4">
+<div class="w-14 h-14 bg-secondary flex items-center justify-center rounded-2xl text-on-secondary">
+<span class="material-symbols-outlined text-3xl">nutrition</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Nutritional Guidance</h3>
+<p class="text-on-surface-variant">Functional nutrition plans that nourish from within, supporting your medical goals and enhancing your yoga practice energy levels.</p>
+</div>
+<a class="mt-8 inline-flex items-center gap-2 text-tertiary font-label-lg hover:gap-3 transition-all" href="#">View plans <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<!-- Service 4 -->
+<div class="md:col-span-2 bg-surface p-10 rounded-[32px] flex flex-col justify-between hover:translate-y-[-8px] transition-all duration-300 border border-outline-variant/30">
+<div class="space-y-4">
+<div class="w-14 h-14 bg-tertiary-container flex items-center justify-center rounded-2xl text-on-tertiary-container">
+<span class="material-symbols-outlined text-3xl">psychology</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Stress Management</h3>
+<p class="text-on-surface-variant">Evidence-based mindfulness techniques combined with breathing exercises to navigate the complexities of modern daily life.</p>
+</div>
+<a class="mt-8 inline-flex items-center gap-2 text-tertiary font-label-lg hover:gap-3 transition-all" href="#">Get started <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+</div>
+</section>
+<!-- Guidance Section -->
+<section class="px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="order-2 lg:order-1 relative">
+<div class="absolute inset-0 bg-primary/5 rounded-[60px] transform -rotate-3"></div>
+<img alt="Woman practicing yoga in a serene studio" class="relative rounded-[60px] w-full aspect-[4/5] object-cover shadow-xl z-10" data-alt="A serene woman practicing an advanced yoga pose in a sun-drenched minimalist studio. Large arched windows reveal a lush green garden outside. The lighting is ethereal and soft, reflecting a high-end wellness brand aesthetic with warm wood floors and organic textures. The overall mood is peaceful, disciplined, and deeply grounded." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUbB8AMPSCpK8fStOWAFpM-NpAG6ffg8dAnC5P-Ljf_gGWHhb82wyOynNIvmpRY6APWmLuFYNZwiGJ9bw5IdOhrIIo0moHFJXErBty8gZeMCXQ3iLMXTtlEAdLIHAfF_cSrsYrfj-P22Butz7sDHFlJR1RSmu9r0oEcLgPgpnFo6q4984nED6kYYYkJsAzVe4fh1B2_dB4yRaYzjfpdlGIduZ5NdCKs01R14w7jPBVAKQ-5Ne0o72tRJnK8HnQXr2xj2DDIWNiAxk"/>
+<div class="absolute -bottom-8 -right-8 bg-surface p-6 rounded-3xl shadow-lg z-20 border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="text-4xl font-display-lg text-tertiary">15+</div>
+<div class="text-sm font-label-lg text-on-surface-variant leading-tight">Years of Clinical<br/>Excellence</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-8">
+<h2 class="font-display-lg text-display-lg text-primary">Scientific Approach to Wellness</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        We believe that true healing happens when we address the patient as a whole being. Our methodology integrates peer-reviewed medical science with the preventative, restorative power of ancient yoga philosophies.
+                    </p>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-primary">Clinical Oversight</h4>
+<p class="text-sm text-on-surface-variant">Every program is reviewed by certified medical professionals to ensure safety and efficacy.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-primary">Natural Remedies</h4>
+<p class="text-sm text-on-surface-variant">We prioritize plant-based and non-invasive interventions whenever possible to support the body's innate healing.</p>
+</div>
+</li>
+</ul>
+<div class="pt-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-label-lg hover:opacity-90 transition-all">Discover Our Method</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Stories (Slider) -->
+<section class="bg-surface-variant/30 py-section-gap overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex justify-between items-end mb-12">
+<div class="max-w-xl">
+<h2 class="font-display-lg text-display-lg text-primary">Community Stories</h2>
+<p class="text-on-surface-variant mt-2">Real transformations from members of the Aura family.</p>
+</div>
+<div class="flex gap-2">
+<button class="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all" onclick="scrollTestimonials('left')">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all" onclick="scrollTestimonials('right')">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="testimonial-slider flex gap-6 overflow-x-auto pb-8 snap-x no-scrollbar" id="testimonial-container">
+<!-- Testimonial 1 -->
+<div class="min-w-[320px] md:min-w-[450px] snap-center bg-surface p-8 rounded-[32px] shadow-sm border border-outline-variant/10">
+<div class="flex gap-1 text-tertiary mb-4">
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+</div>
+<p class="font-body-lg text-on-surface italic mb-8">"The medical consultation was eye-opening. For the first time, a doctor actually looked at my stress levels and recommended a specific yoga flow alongside my treatment. I've never felt more in control of my health."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container overflow-hidden">
+<img alt="Sarah J." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwALs98LzXDjUGh3sK9fYeBcVCd2d4ix2IzYXSkjselsdnqaVrzNeGijd86c-G2sSvMb-Lkzf_bAA3C5-ZHZPq3huZFuIg4ttVmoRd7O-X6ZAcQSb2xjxXDKOLQ7EkFldHLGURzz5fVEAmkLPjh6C3a0BeUcWKVkTWNfWM9qP_Ec4rSoZ-2f-FAaY-xF5w0a2wg5ZGZ8VS5beuGWsU6gKJMWZmgZfD9XlV5bqY3SGGxL4NycqjVW5UEo9eGkpl5sEG9bXumHpE4qI"/>
+</div>
+<div>
+<p class="font-label-lg text-primary">Sarah J.</p>
+<p class="text-xs text-on-surface-variant">Aura Member since 2021</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="min-w-[320px] md:min-w-[450px] snap-center bg-surface p-8 rounded-[32px] shadow-sm border border-outline-variant/10">
+<div class="flex gap-1 text-tertiary mb-4">
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+</div>
+<p class="font-body-lg text-on-surface italic mb-8">"I came for the yoga, but stayed for the nutrition advice. My chronic fatigue has vanished after implementing the holistic plan they built for me. It's a life-changer."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container overflow-hidden">
+<img alt="Michael R." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzMksN5S-scxHhCAbBy7pwxznPcB3PbIwLQ5XP9HP2PVRhJmYnTADGkvsoN8oCPJVceEtHuLtrwN3lTq718Ho_eh-VAb-5USlm5i1uq0AmbIp7mg4t4WdFCBUCXUqNlEv6uqpQtk_lIVDTyb39QRA89rD3g79V7JTfNASUl2d0iEJqaR64ZSMfBdVnlaX5qsLIaYlHBY-oMcNtAhOyzhbc9_ZJxRY98fhxoYXjmXqbnP859_BXOoyiRtsU8lyVPzsKKJVY14kGy7Q"/>
+</div>
+<div>
+<p class="font-label-lg text-primary">Michael R.</p>
+<p class="text-xs text-on-surface-variant">Wellness Enthusiast</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="min-w-[320px] md:min-w-[450px] snap-center bg-surface p-8 rounded-[32px] shadow-sm border border-outline-variant/10">
+<div class="flex gap-1 text-tertiary mb-4">
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+<span class="material-symbols-outlined" data-weight="fill">star</span>
+</div>
+<p class="font-body-lg text-on-surface italic mb-8">"The space itself is so healing. Whether I'm there for a blood test or a Vinyasa class, the atmosphere at Aura immediately calms my nervous system."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container overflow-hidden">
+<img alt="Elena W." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOXViGpapm3m-u3Cspz5NTzjW4thqsZrktuO89B94iJJr5msW-jBbOfoMimQJlst59oaNl1N0hRXMf4X5auWctxLzQEILrbh_5jrvGVa5nBkwabtdGGYbaBrMOYJQrdidYmU9ZKz08YbtBLC1lJtEYat0e5rVAzbikuPBuMAV0sK60jHTizoJY1Nappjxfh0QrNh-OHy6193IBYcxLz1fHY_zHOZNG9tDx2F_o9MkVN8fX3mY1dnt002OQOxMSdrzlj-AfMeM7dj4"/>
+</div>
+<div>
+<p class="font-label-lg text-primary">Elena W.</p>
+<p class="text-xs text-on-surface-variant">Aura Member</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Wellness Journal -->
+<section class="px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
+<h2 class="font-display-lg text-display-lg text-primary">Wellness Journal</h2>
+<a class="text-tertiary font-label-lg flex items-center gap-2 hover:underline" href="#">View All Posts <span class="material-symbols-outlined">arrow_outward</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Post 1 -->
+<article class="group cursor-pointer">
+<div class="relative aspect-video rounded-[32px] overflow-hidden mb-6">
+<div class="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500"></div>
+<img alt="Meditation scene" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="A macro shot of a person's hands resting in a meditation pose, surrounded by soft natural fabrics and warm, diffused sunlight. The scene is incredibly calm, with a shallow depth of field focusing on the tactile quality of the textiles and skin. The lighting is golden and inviting, reinforcing a mood of deep mindfulness and interior peace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACvkpNLLdnfDeHUQglhH7pD9CLtctl1iBA9xDDl_QzxdfbJKNnukVitQxouNCS4CZ29nH99TYuEVUslTXTN52q3LhlUGqfg__D_gWh8QRZIbslaBRglw-O5qNvk1FB3PlWKe4PATWf7Hs-g1tdt1RHZD7kWbCt4eX4Y1bXOa702rztl9Czv03LfrQn4TK0JLb-yYhThKM0PvaLGNwufYSTSZ3VTBZdbHEACJLNnBT4dCWXSaRih4Z4OPyfamdhjogX4d0yoI_TCSI"/>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-label-lg text-primary">Mindfulness</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 group-hover:text-tertiary transition-colors">The Art of Mindful Breathing in Modern Life</h3>
+<p class="text-on-surface-variant line-clamp-2 mb-4">Discover how simple breathing techniques can recalibrate your nervous system in just five minutes...</p>
+<time class="text-xs font-label-sm text-outline uppercase tracking-wider">March 12, 2024</time>
+</article>
+<!-- Post 2 -->
+<article class="group cursor-pointer">
+<div class="relative aspect-video rounded-[32px] overflow-hidden mb-6">
+<div class="absolute inset-0 bg-secondary/20 group-hover:bg-transparent transition-colors duration-500"></div>
+<img alt="Herbal medicine ingredients" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="An overhead flat-lay of assorted dried medicinal herbs, fresh botanicals, and small glass apothecary bottles on a clean white stone surface. The composition is artistic and organized, reflecting medical precision and botanical beauty. The lighting is bright and clear, creating sharp, soft shadows and a professional health-oriented atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAixNvwcj7wNmJFRRX2WufxkReB-AmpBlknJMthzpyQ4bQr6ks1HvjO5d1FZnmqeInxnG2TOzDVis850YiH1s-gJXnPIkI0PMu83_kNZsE7BZ3Kbd1WhgmAl6ON65-fF9LrFsXCELWWWUDY3DNG_Bt0vWJHboco_njDKZ7LEO1cmmBTKtPSwYT-7aPzYjyHZGUsm-Ga7jsrgoAqDZF0tKEQJy3VXfEZDfT4OIdsuKtde5RlN7UrV9iRH1jNK1f5TaceIuyz2fY9Dc"/>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-label-lg text-primary">Medicine</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 group-hover:text-tertiary transition-colors">Bridging the Gap: Functional Medicine Explained</h3>
+<p class="text-on-surface-variant line-clamp-2 mb-4">Understanding the root-cause approach and why it's becoming the future of personalized healthcare...</p>
+<time class="text-xs font-label-sm text-outline uppercase tracking-wider">March 08, 2024</time>
+</article>
+<!-- Post 3 -->
+<article class="group cursor-pointer">
+<div class="relative aspect-video rounded-[32px] overflow-hidden mb-6">
+<div class="absolute inset-0 bg-tertiary/20 group-hover:bg-transparent transition-colors duration-500"></div>
+<img alt="Healthy balanced meal" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="A beautifully plated vibrant green salad with seeds, avocado, and colorful edible flowers, set on a handcrafted ceramic plate. The background is a rustic wooden table in a brightly lit kitchen. The aesthetic is clean, organic, and health-conscious, with high-key lighting that makes the fresh ingredients appear succulent and nourishing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAog_mFYWI3ZOcva2qxh86BkzoAtukT4Yk55lad_a89AnrxQnQzBUcLsCLLlarLa12QDuBtIg1W8O4qVf2izSRHiETvIviMq4GdYFTc7TUOc1-VozKjBJ1FGSya6v3VqPhRim5WvQNo3ey-ayqyxf-MqxjssKXL-BYDUJYysACCULyTpYWihwyDVKj1zhAkGGoJDbiFQpeIYJCkT4r-gu4Ebt8Q272cXnDfCm-z1wvFERIPo--j6BWwJn9GjHCMagDZV6zFc5nQwdo"/>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-label-lg text-primary">Nutrition</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 group-hover:text-tertiary transition-colors">Nutrients for Vitality: Eating with the Seasons</h3>
+<p class="text-on-surface-variant line-clamp-2 mb-4">Why aligning your diet with the seasonal cycles can significantly boost your energy and immunity...</p>
+<time class="text-xs font-label-sm text-outline uppercase tracking-wider">February 28, 2024</time>
+</article>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low mt-section-gap rounded-t-[40px]">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap w-full max-w-container-max mx-auto">
+<div class="space-y-6">
+<div class="font-display-lg text-headline-md text-primary">Aura Wellness</div>
+<p class="text-on-surface-variant text-body-md">Empowering your journey toward total health through the harmony of science and soul.</p>
+<div class="flex gap-4">
+<a class="text-primary hover:text-tertiary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-primary hover:text-tertiary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-primary hover:text-tertiary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-lg text-primary uppercase tracking-widest text-[10px]">Navigate</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Yoga Classes</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Medical Services</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Holistic Guidance</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Wellness Journal</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-lg text-primary uppercase tracking-widest text-[10px]">Legal</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-label-lg text-primary uppercase tracking-widest text-[10px]">Newsletter</h4>
+<p class="text-on-surface-variant text-body-md">Join our wellness newsletter for monthly insights and early access to classes.</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Email address" type="email"/>
+<button class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center hover:opacity-90 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Aura Holistic Medicine &amp; Yoga. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary" href="#">Wellness Newsletter</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+<script>
+        function scrollTestimonials(direction) {
+            const container = document.getElementById('testimonial-container');
+            const scrollAmount = 480;
+            if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        // Simple scroll reveal effect
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body></html>

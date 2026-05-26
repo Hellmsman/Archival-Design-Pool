@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Library | Discover Your Next Great Read</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400..900;1,400..900&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#191c1d",
+                      "on-secondary": "#ffffff",
+                      "outline": "#747879",
+                      "on-error": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#2e3132",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed": "#ffdad2",
+                      "inverse-on-surface": "#f0f1f2",
+                      "primary-fixed-dim": "#c1c8ca",
+                      "primary-container": "#2d3436",
+                      "on-tertiary-fixed": "#3d0700",
+                      "on-tertiary-fixed-variant": "#812914",
+                      "secondary": "#556064",
+                      "surface-tint": "#586062",
+                      "on-secondary-fixed": "#131d21",
+                      "primary-fixed": "#dde4e6",
+                      "surface-bright": "#f8f9fa",
+                      "surface-container-high": "#e7e8e9",
+                      "on-secondary-container": "#596468",
+                      "on-error-container": "#93000a",
+                      "surface-container": "#edeeef",
+                      "error-container": "#ffdad6",
+                      "on-surface": "#191c1d",
+                      "tertiary-fixed-dim": "#ffb4a3",
+                      "surface-container-low": "#f3f4f5",
+                      "surface-dim": "#d9dadb",
+                      "error": "#ba1a1a",
+                      "primary": "#181f21",
+                      "on-tertiary-container": "#ee7a5e",
+                      "secondary-fixed-dim": "#bdc8cd",
+                      "tertiary": "#410800",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#161d1f",
+                      "surface": "#f8f9fa",
+                      "on-surface-variant": "#434749",
+                      "secondary-container": "#d6e2e6",
+                      "tertiary-container": "#651503",
+                      "outline-variant": "#c3c7c8",
+                      "surface-variant": "#e1e3e4",
+                      "on-primary-fixed-variant": "#41484a",
+                      "on-secondary-fixed-variant": "#3e484c",
+                      "background": "#f8f9fa",
+                      "on-primary-container": "#959c9f",
+                      "surface-container-highest": "#e1e3e4",
+                      "inverse-primary": "#c1c8ca",
+                      "secondary-fixed": "#d9e4e9"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "xxl": "48px",
+                      "sm": "8px",
+                      "container-max": "1280px",
+                      "base": "4px",
+                      "md": "16px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": ["Literata"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "display-lg": ["Literata"],
+                      "body-md": ["Hanken Grotesk"],
+                      "caption": ["Hanken Grotesk"],
+                      "headline-sm": ["Literata"],
+                      "label-md": ["Hanken Grotesk"],
+                      "headline-md": ["Literata"]
+              },
+              "fontSize": {
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        body {
+            background: radial-gradient(circle at top right, #f3f4f5 0%, #f8f9fa 100%);
+            -webkit-font-smoothing: antialiased;
+        }
+        .book-card-hover {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .book-card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 20px 40px rgba(0,0,0,0.06);
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar -->
+<header class="w-full top-0 z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant/30 sticky">
+<div class="flex justify-between items-center px-lg py-md max-w-container-max mx-auto">
+<div class="flex items-center gap-xl">
+<a class="font-display-lg text-display-lg font-bold text-primary dark:text-primary-fixed" href="#">Lumina Library</a>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Collections</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">New Arrivals</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Authors</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">About Us</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="font-label-md text-label-md px-md py-sm text-on-surface-variant hover:text-primary transition-colors">Sign In</button>
+<button class="font-label-md text-label-md px-lg py-sm bg-primary text-on-primary rounded shadow-sm scale-95 active:scale-90 transition-transform">Sign Up</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-xxl pb-xxl px-lg">
+<div class="max-w-container-max mx-auto grid md:grid-cols-2 gap-xxl items-center">
+<div class="space-y-lg animate-in fade-in slide-in-from-left duration-1000">
+<span class="inline-block px-sm py-xs bg-secondary-container text-on-secondary-container font-label-md text-label-md rounded">Curated Selection</span>
+<h1 class="font-display-lg text-display-lg md:text-display-lg-mobile text-primary leading-tight">Discover Your Next Great Read</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">Step into a world of literary excellence. From timeless classics to contemporary masterpieces, find the stories that speak to you.</p>
+<div class="flex flex-wrap gap-md pt-md">
+<button class="px-xl py-md bg-primary text-on-primary font-label-md text-label-md rounded shadow hover:bg-on-background transition-all">Create Account</button>
+<button class="px-xl py-md border border-outline font-label-md text-label-md rounded hover:bg-surface-container transition-all flex items-center gap-sm">
+                            Explore Archive
+                            <span class="material-symbols-outlined text-md">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="relative hidden md:block group">
+<div class="aspect-[4/3] rounded-xl overflow-hidden bg-surface-container-high border border-outline-variant/10 shadow-xl transition-transform duration-700 group-hover:scale-[1.02]">
+<img class="w-full h-full object-cover" data-alt="A sun-drenched, sophisticated modern library interior featuring floor-to-ceiling wooden bookshelves filled with neatly arranged leather-bound books. The lighting is soft and golden, filtering through high clerestory windows. The floor is polished dark wood with a plush minimalist rug. The aesthetic is scholarly yet inviting, using a palette of warm neutrals and deep charcoals to convey premium intellectual depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHUW7vfHhaTTJDKzkIgL41xrW5lt6YB6dzvcWnkDS92bWL5RLh6-XUaMC_Fz2kFr7zZWTNJBNMQcjplT5U5vZ33JirTpQUjqGI7d8m6c-1f6XjR3l9zJELoD34e_PqvzsqKlKvApPHV2BP9sYZeJj4v_pztD1GPFZJfhbZlmV_ajE6JbqIs0fQOZLS11Zpfci1KwJf-fsNGwgwz_2ss9ZcEtMA45av_Tf-FaOq1Xpm9idSQdFqxX-Q2Eqs033DJL8Pk34EpTNHc0Y"/>
+</div>
+<div class="absolute -bottom-lg -left-lg bg-surface p-lg rounded border border-outline-variant/20 shadow-lg max-w-xs backdrop-blur-sm">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary text-display-lg" style="font-variation-settings: 'FILL' 1;">book_2</span>
+<div>
+<p class="font-label-md text-label-md text-primary">Library Pick</p>
+<p class="font-headline-sm text-headline-sm italic">"A mind needs books as a sword needs a whetstone."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Grid Gallery Section -->
+<section class="bg-surface-container-lowest py-xxl px-lg">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-xxl gap-lg">
+<div class="max-w-xl">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-md">Iconic Works</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">A curated collection of the most influential literature ever written, preserved for the modern scholar.</p>
+</div>
+<div class="flex gap-sm">
+<span class="px-md py-sm bg-surface border border-outline-variant rounded font-label-md text-label-md cursor-pointer hover:border-primary transition-colors">Fiction</span>
+<span class="px-md py-sm bg-surface border border-outline-variant rounded font-label-md text-label-md cursor-pointer hover:border-primary transition-colors">Philosophy</span>
+<span class="px-md py-sm bg-surface border border-outline-variant rounded font-label-md text-label-md cursor-pointer hover:border-primary transition-colors">Essays</span>
+</div>
+</div>
+<!-- 4x3 Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Book Card 1 -->
+<div class="book-card-hover bg-white rounded overflow-hidden border border-black/5 flex flex-col group h-full">
+<div class="relative flex-1 bg-surface-container flex items-center justify-center p-xl border-l-4 border-primary">
+<img class="w-40 h-60 object-cover shadow-2xl transition-transform group-hover:scale-105 duration-500" data-alt="The front cover of a classic novel entitled The Great Gatsby, featuring elegant Art Deco typography and gold geometric patterns against a deep midnight blue background. The book is presented as a high-quality physical object with realistic paper texture and gilded edges, staged in a clean studio setting with professional top-down lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8RPgCy2ycUnhDg4iXcBMsoPhwG4ti9uxiOowrH5sYyqgKR9ehi25uLsDS7tRu1WgBYnq63q_D11gT1rp0yna7WCWvkzCX0fKzt5TeLY8VlbdgGGDENrA8lcpDm9AtFryVkd-ixtvKuPX_VAX8chhuoefKdOaKVfgaphUFkdtdh85_13cmw9-_5yWExMTmYm_DBU4N7mJqPj1FBX1Cfec7298KmMAzMkjH_je3g2VxBSim1JMXGuzrktult8Gnbp9Y5RwBhF2RPqA"/>
+</div>
+<div class="p-lg flex flex-col justify-between h-[160px]">
+<div>
+<p class="font-caption text-caption text-on-surface-variant uppercase tracking-wider mb-xs">Francis Scott Fitzgerald</p>
+<h3 class="font-headline-sm text-headline-sm text-primary line-clamp-1">The Great Gatsby</h3>
+</div>
+<div class="flex justify-between items-center mt-lg">
+<span class="font-label-md text-label-md text-primary">$18.99</span>
+<button class="material-symbols-outlined text-primary-container hover:text-primary transition-colors">shopping_bag</button>
+</div>
+</div>
+</div>
+<!-- Book Card 2 -->
+<div class="book-card-hover bg-white rounded overflow-hidden border border-black/5 flex flex-col group h-full">
+<div class="relative flex-1 bg-surface-container flex items-center justify-center p-xl border-l-4 border-error">
+<img class="w-40 h-60 object-cover shadow-2xl transition-transform group-hover:scale-105 duration-500" data-alt="A stark and minimalist book cover for George Orwell's 1984, featuring a single, large eye motif rendered in a vintage screen-print style. The color palette is restricted to weathered red, coal black, and aged cream. The book sits on a neutral grey surface, illuminated by a single spotlight that creates dramatic contrast and a moody, dystopian atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQVP6vPO_inml4LgDH1xYuqzreX8q-kaqlDofoNU8phuuCEUQ9V6xTBkiq8vbTNy2Rsd42Upf2kmMhwbqjm4540zXSJCV2JmISACQvc4zeBpLnQ9nQ4P_8WwUsFFeAlBoyXREH8mLTOmT0j03HdGndk8k2A30aD8dCsklccXZrg8SfYkeDeLy5Lc2rKg8zPyUzB6j1bBaTMVMMSRIzjjjRKBcI3xkjx0SDoKcbWGK6dWhONjf_G-ZLa64oK5q2OZSFG1Lp38huQsQ"/>
+</div>
+<div class="p-lg flex flex-col justify-between h-[160px]">
+<div>
+<p class="font-caption text-caption text-on-surface-variant uppercase tracking-wider mb-xs">George Orwell</p>
+<h3 class="font-headline-sm text-headline-sm text-primary line-clamp-1">1984</h3>
+</div>
+<div class="flex justify-between items-center mt-lg">
+<span class="font-label-md text-label-md text-primary">$15.50</span>
+<button class="material-symbols-outlined text-primary-container hover:text-primary transition-colors">shopping_bag</button>
+</div>
+</div>
+</div>
+<!-- Book Card 3 -->
+<div class="book-card-hover bg-white rounded overflow-hidden border border-black/5 flex flex-col group h-full">
+<div class="relative flex-1 bg-surface-container flex items-center justify-center p-xl border-l-4 border-[#3D5A80]">
+<img class="w-40 h-60 object-cover shadow-2xl transition-transform group-hover:scale-105 duration-500" data-alt="A beautifully designed modern cover for To Kill a Mockingbird, showing the silhouette of an oak tree against a soft twilight purple and indigo sky. The typography is modern and elegant. The book is presented at a slight angle to showcase the spine, which features gold lettering. The lighting is low-key and atmospheric, emphasizing depth and narrative mystery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZpFUy57FKNbRooRtI43BZvzs5qxxY-HCqWijlKhN5Qj-NTUPI__qY4T-_BAZz_u_eAsAuXw3QOqQEE1dicKF1q6GQCW0Jnil-isFb_CGV0r-XeiPnzNJFOq3g28n4TdxaKVuN-_ae_WIIN61-IBJbUBvO-4gi7sBr0vlC8aG_9Xy_l0eox354O9pVHqEKAdHZMEGUg4W9b9UUn79ljTmDuEj6QC-lky_6hUGVujtV5GkeL9JZYB16wapRqP_nZ4v8qfNVj95pKYg"/>
+</div>
+<div class="p-lg flex flex-col justify-between h-[160px]">
+<div>
+<p class="font-caption text-caption text-on-surface-variant uppercase tracking-wider mb-xs">Harper Lee</p>
+<h3 class="font-headline-sm text-headline-sm text-primary line-clamp-1">To Kill a Mockingbird</h3>
+</div>
+<div class="flex justify-between items-center mt-lg">
+<span class="font-label-md text-label-md text-primary">$22.00</span>
+<button class="material-symbols-outlined text-primary-container hover:text-primary transition-colors">shopping_bag</button>
+</div>
+</div>
+</div>
+<!-- Book Card 4 -->
+<div class="book-card-hover bg-white rounded overflow-hidden border border-black/5 flex flex-col group h-full">
+<div class="relative flex-1 bg-surface-container flex items-center justify-center p-xl border-l-4 border-tertiary-container">
+<img class="w-40 h-60 object-cover shadow-2xl transition-transform group-hover:scale-105 duration-500" data-alt="An intricately detailed book cover for Moby Dick by Herman Melville, featuring a massive, stylized white whale emerging from swirling, hand-drawn nautical waves in deep teal and charcoal. The aesthetic is reminiscent of a high-end lithograph. The scene is bright and airy with high-key lighting, highlighting the fine line work of the illustration and the premium matte texture of the cover." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9pDR-n2OgvlwDJVOMjl16YP2beYHtZblAsVQdBYciRBP_AaFpUdsiC5A2N22c1CF2KCUOruiuCQ4gPq5TDYuo-5p4gFZWVb0rAC1nAPqASSx6KEaY_eC7CbT2KJa6EJvuO6W9DYsO7yji21lB72nAB-m8p3ffxEj-tGl17XXBHPHQtLfSBZpJKRi2htpDtIXdFTSIxKk11xCq_lPibIVpXTQqW-h6MN-1XNt2G9QWCfNuIuGWXOqePDQX6-py0g76-vXTmJOxYBA"/>
+</div>
+<div class="p-lg flex flex-col justify-between h-[160px]">
+<div>
+<p class="font-caption text-caption text-on-surface-variant uppercase tracking-wider mb-xs">Herman Melville</p>
+<h3 class="font-headline-sm text-headline-sm text-primary line-clamp-1">Moby Dick</h3>
+</div>
+<div class="flex justify-between items-center mt-lg">
+<span class="font-label-md text-label-md text-primary">$24.95</span>
+<button class="material-symbols-outlined text-primary-container hover:text-primary transition-colors">shopping_bag</button>
+</div>
+</div>
+</div>
+<!-- Card 5-8 Placeholder items (using repeating pattern logic for visual flow) -->
+<div class="book-card-hover bg-white rounded overflow-hidden border border-black/5 flex flex-col group h-full">
+<div class="relative flex-1 bg-surface-container flex items-center justify-center p-xl border-l-4 border-[#2A9D8F]">
+<img class="w-40 h-60 object-cover shadow-2xl transition-transform group-hover:scale-105 duration-500" data-alt="A modern editorial cover for Brave New World featuring abstract, repetitive geometric patterns in a vibrant, futuristic teal and pale mint palette. The typography is clean and sans-serif. The image captures the book under soft, diffuse lighting, highlighting its sharp corners and the high-quality satin finish of the cover art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv70p3dAli2L_QaSxx_tJ7-Voi5RQ9UPc3zkznt8inqjnAmoa2k6swWhbAfV2Wlvy31r4x1DuJJeqIwLJN_MSV0KcXuJ9mkRuPu2HKdjdcG2KyMROaiB6q-4MHiMlglyu2pJo_6hkrO7WylrnfQ6lB-vX_hqCp-lfuP16LCyKXvXOPjbDyzd9Jcesd528v_zgDWcHvfj7e3qo140IpjBBqYKkRgJ4VNPYIfGwuUxJcrm1rWjLyvxS8-wcVhDMPMzXeTU-piE1i-a0"/>
+</div>
+<div class="p-lg flex flex-col justify-between h-[160px]">
+<div>
+<p class="font-caption text-caption text-on-surface-variant uppercase tracking-wider mb-xs">Aldous Huxley</p>
+<h3 class="font-headline-sm text-headline-sm text-primary line-clamp-1">Brave New World</h3>
+</div>
+<div class="flex justify-between items-center mt-lg">
+<span class="font-label-md text-label-md text-primary">$16.00</span>
+<button class="material-symbols-outlined text-primary-container hover:text-primary transition-colors">shopping_bag</button>
+</div>
+</div>
+</div>
+<div class="book-card-hover bg-white rounded overflow-hidden border border-black/5 flex flex-col group h-full">
+<div class="relative flex-1 bg-surface-container flex items-center justify-center p-xl border-l-4 border-[#E76F51]">
+<img class="w-40 h-60 object-cover shadow-2xl transition-transform group-hover:scale-105 duration-500" data-alt="The Odyssey by Homer, presented as a luxury clothbound edition in deep terracotta orange with intricate gold foil patterns depicting ancient Greek motifs. The book is set against a clean, white minimalist shelf, lit by a soft side-light that emphasizes the embossed texture of the gold foil and the woven quality of the cloth cover." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoTmPaFtP7LeTBQfE5GAEPUi7SlweHtJWw6byj2rguwi2ew1C7eNNYTpNy2Ikr1UYp4hoc-iXoFZOZniZpLDD3fH281prgJuFUcU1df65SFaj1a8VocQMuVG-OWDx3Aoco6_SOgS16YTs8LAFNxXN1zFp8hJEPLyjM28B0aVZQk8HR7jRWfC8gWILCdLRkpX1rQgcc8zSrfL06otEamiPz2zYIjAbgOH-7Q51PIVAwgDetAAgkaExWQxbxeLA-7n0gIrRze4DOEnY"/>
+</div>
+<div class="p-lg flex flex-col justify-between h-[160px]">
+<div>
+<p class="font-caption text-caption text-on-surface-variant uppercase tracking-wider mb-xs">Homer</p>
+<h3 class="font-headline-sm text-headline-sm text-primary line-clamp-1">The Odyssey</h3>
+</div>
+<div class="flex justify-between items-center mt-lg">
+<span class="font-label-md text-label-md text-primary">$32.50</span>
+<button class="material-symbols-outlined text-primary-container hover:text-primary transition-colors">shopping_bag</button>
+</div>
+</div>
+</div>
+<div class="book-card-hover bg-white rounded overflow-hidden border border-black/5 flex flex-col group h-full">
+<div class="relative flex-1 bg-surface-container flex items-center justify-center p-xl border-l-4 border-on-secondary-container">
+<img class="w-40 h-60 object-cover shadow-2xl transition-transform group-hover:scale-105 duration-500" data-alt="Pride and Prejudice by Jane Austen, featuring a delicate floral watercolor illustration in pastel pinks and soft greens. The typography is elegant and hand-scripted. The book is presented in a bright, airy setting with high-key lighting that evokes a sense of romanticism and classic sophistication, perfectly aligned with a light-mode modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDhmpoeV0T5L-G1JNggMvjKysRFnT1vgzecs6VMGFEDt4l_w46F6a0EG-hyWg8xHAc6cH4n2nUV9ZY1J7O2nUTrLmgdIqtbSm6Ds0vSTApT7qURvJzMB9zJGV-GgLjTGTl-Lv3NdsHU7N3gh2e0dBi0gVQhxxdwDUhUnC_KkHurOToLOF1q6DrcPOVFWTLhAsJ7PkJMe0AI-X4tiIJEmIH1Fm_aRZdCQh0YoTKHZ96FCcEFi6mL3crp5mx7RYhEzpcE7RMjnbSQSA"/>
+</div>
+<div class="p-lg flex flex-col justify-between h-[160px]">
+<div>
+<p class="font-caption text-caption text-on-surface-variant uppercase tracking-wider mb-xs">Jane Austen</p>
+<h3 class="font-headline-sm text-headline-sm text-primary line-clamp-1">Pride and Prejudice</h3>
+</div>
+<div class="flex justify-between items-center mt-lg">
+<span class="font-label-md text-label-md text-primary">$19.00</span>
+<button class="material-symbols-outlined text-primary-container hover:text-primary transition-colors">shopping_bag</button>
+</div>
+</div>
+</div>
+<div class="book-card-hover bg-white rounded overflow-hidden border border-black/5 flex flex-col group h-full">
+<div class="relative flex-1 bg-surface-container flex items-center justify-center p-xl border-l-4 border-primary-container">
+<img class="w-40 h-60 object-cover shadow-2xl transition-transform group-hover:scale-105 duration-500" data-alt="A dark and enigmatic cover for Crime and Punishment by Fyodor Dostoevsky, showing a fragmented shadow of a figure against a cracked, grey stone background. The mood is intense and psychological. The lighting is moody with high contrast, using a palette of deep greys, blacks, and a single sharp highlight to create a sense of dramatic tension." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV1DgllPnphAMkM9M7KubydE1rWP8A1qytG43-apLo9-WRSzICDH2XypJeFp_A03-mPCwAbuvqawfirhI8_80utXzYC49f1dZd6vDfn_tx8Zu-E7yEVF5SA3yp95PNn9JHdbPlZp21-zoGA-4ZRCJt3wx6tKDWP5QZUHB46XZNzVWg73Yj0dnfDyd3ACop_pYQNrM5B0BIWkTxHKwAlkA9r9cdUblaIln-oKIKKK46s9WloT5Tg_27kREQ8Ud_-6DSjgDzCkqul2Y"/>
+</div>
+<div class="p-lg flex flex-col justify-between h-[160px]">
+<div>
+<p class="font-caption text-caption text-on-surface-variant uppercase tracking-wider mb-xs">Fyodor Dostoevsky</p>
+<h3 class="font-headline-sm text-headline-sm text-primary line-clamp-1">Crime and Punishment</h3>
+</div>
+<div class="flex justify-between items-center mt-lg">
+<span class="font-label-md text-label-md text-primary">$21.50</span>
+<button class="material-symbols-outlined text-primary-container hover:text-primary transition-colors">shopping_bag</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-xxl text-center">
+<button class="px-xl py-md bg-transparent border border-primary text-primary font-label-md text-label-md rounded hover:bg-primary hover:text-on-primary transition-all">Load More Masterpieces</button>
+</div>
+</div>
+</section>
+<!-- Subscription Section -->
+<section class="py-xxl px-lg bg-surface">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-xxl">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-md">Membership Tiers</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Access the world's greatest literature with a membership plan tailored to your reading journey.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Standard -->
+<div class="p-xl bg-white rounded border border-outline-variant/20 flex flex-col h-full hover:border-primary/20 transition-all">
+<div class="mb-lg">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Standard</h3>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-headline-md font-bold text-primary">$12</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/ month</span>
+</div>
+</div>
+<ul class="space-y-md mb-xl flex-1">
+<li class="flex items-center gap-md font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+                                Access to 1,000+ Titles
+                            </li>
+<li class="flex items-center gap-md font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+                                2 Concurrent Loans
+                            </li>
+<li class="flex items-center gap-md font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+                                Digital Lending Only
+                            </li>
+</ul>
+<button class="w-full py-md border border-outline rounded font-label-md text-label-md hover:bg-surface-container transition-all">Select Standard</button>
+</div>
+<!-- Premium -->
+<div class="p-xl bg-primary-container rounded border-2 border-primary flex flex-col h-full relative overflow-hidden shadow-xl">
+<div class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold px-sm py-xs rounded uppercase tracking-widest">Most Popular</div>
+<div class="mb-lg">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-xs">Premium</h3>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-headline-md font-bold text-on-primary">$29</span>
+<span class="font-label-md text-label-md text-on-primary-container">/ month</span>
+</div>
+</div>
+<ul class="space-y-md mb-xl flex-1">
+<li class="flex items-center gap-md font-body-md text-body-md text-on-primary-fixed">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm">check_circle</span>
+                                Unlimited Digital Archive
+                            </li>
+<li class="flex items-center gap-md font-body-md text-body-md text-on-primary-fixed">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm">check_circle</span>
+                                5 Physical Book Loans
+                            </li>
+<li class="flex items-center gap-md font-body-md text-body-md text-on-primary-fixed">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm">check_circle</span>
+                                Access to Rare Editions
+                            </li>
+<li class="flex items-center gap-md font-body-md text-body-md text-on-primary-fixed">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm">check_circle</span>
+                                Member-Only Events
+                            </li>
+</ul>
+<button class="w-full py-md bg-on-primary text-primary font-label-md text-label-md rounded shadow-lg hover:scale-[1.02] transition-all">Go Premium</button>
+</div>
+<!-- Deluxe -->
+<div class="p-xl bg-white rounded border border-outline-variant/20 flex flex-col h-full hover:border-primary/20 transition-all">
+<div class="mb-lg">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Deluxe</h3>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-headline-md font-bold text-primary">$59</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/ month</span>
+</div>
+</div>
+<ul class="space-y-md mb-xl flex-1">
+<li class="flex items-center gap-md font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+                                White-Glove Home Delivery
+                            </li>
+<li class="flex items-center gap-md font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+                                Unlimited Physical Loans
+                            </li>
+<li class="flex items-center gap-md font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+                                Personal Literary Curator
+                            </li>
+<li class="flex items-center gap-md font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+                                Private Archive Access
+                            </li>
+</ul>
+<button class="w-full py-md border border-outline rounded font-label-md text-label-md hover:bg-surface-container transition-all">Inquire Today</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xxl bg-surface-container-lowest dark:bg-surface-container-highest border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-lg grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<a class="font-display-lg text-display-lg text-primary mb-md block" href="#">Lumina</a>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg pr-md">Preserving the past, illuminating the future through the power of curated literature and digital archival excellence.</p>
+<div class="flex gap-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+</div>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-lg">Navigation</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Collections</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Authors</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">New Arrivals</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-lg">Legal &amp; Help</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-lg">Our Location</h4>
+<div class="h-40 w-full bg-surface-container rounded-lg overflow-hidden border border-outline-variant/30 mb-md relative group">
+<img class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" data-alt="A stylized, architectural map detail showing the historic library district of Oxford, UK. The map uses a minimalist, light-mode design with subtle charcoal lines for streets and soft grey shapes for buildings. A single elegant marker points to a grand neoclassical structure. The overall aesthetic is clean, academic, and sophisticated, avoiding cluttered cartographic details." data-location="Oxford, United Kingdom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx3AcQluw-9oDoroETnd9R9J5fkvw9zli5YRl1J4fj8IzhckyGmcAkKYFiPUWJbRuYsDNvAlcDEqO62i0gdN8eUHFHohIVfFyMkFJgK8mEvNziUq8Kn17tecmCDbW5gMLV1O68ufHehkzY-G_hGm6qdF_wQ7Qd6eeKe5tF11mD--7dYmOxrOjhb8K2RSyWYIuTttYREe3mgnRNPoxmKv59-7guS9C6xQGy4Uc3-LyupJ5c3nUOhBiDESpFXg9YEiHRnXM-79JT0y0"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-display-lg" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+<p class="font-caption text-caption text-on-surface-variant">42 Radcliffe Square, Oxford, UK<br/>+44 1865 277200</p>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-lg mt-xxl pt-lg border-t border-outline-variant/10 text-center">
+<p class="font-caption text-caption text-on-surface-variant">© 2024 Lumina Digital Library. All rights reserved. Crafting knowledge for the digital age.</p>
+</div>
+</footer>
+<script>
+        // Subtle interaction for book cards
+        document.querySelectorAll('.book-card-hover').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const img = card.querySelector('img');
+                if (img) img.style.transform = 'scale(1.05) rotate(1deg)';
+            });
+            card.addEventListener('mouseleave', () => {
+                const img = card.querySelector('img');
+                if (img) img.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Sticky header transition
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md', 'backdrop-blur-md', 'bg-white/90');
+            } else {
+                header.classList.remove('shadow-md', 'backdrop-blur-md', 'bg-white/90');
+            }
+        });
+    </script>
+</body></html>

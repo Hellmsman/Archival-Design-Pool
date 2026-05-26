@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Benny's Motorsport | Precision &amp; Adrenaline</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Hanken+Grotesk:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .neon-glow-purple {
+            box-shadow: 0 0 20px rgba(235, 178, 255, 0.15);
+        }
+        .neon-glow-yellow {
+            box-shadow: 0 0 15px rgba(205, 205, 0, 0.3);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .speed-stripe-left {
+            position: relative;
+        }
+        .speed-stripe-left::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15%;
+            height: 70%;
+            width: 4px;
+            background-color: #ebb2ff; /* primary */
+        }
+        .glossy-overlay {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%);
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#504254",
+                        "on-surface": "#e5e2e1",
+                        "surface-container": "#201f1f",
+                        "secondary": "#b9c3ff",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-fixed": "#dde1ff",
+                        "primary-fixed": "#f8d8ff",
+                        "primary-fixed-dim": "#ebb2ff",
+                        "surface-variant": "#353534",
+                        "on-primary-container": "#ffffff",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed-variant": "#494900",
+                        "tertiary-fixed-dim": "#cdcd00",
+                        "on-tertiary-container": "#424200",
+                        "tertiary-container": "#b1b100",
+                        "outline": "#9d8ba0",
+                        "tertiary-fixed": "#eaea00",
+                        "primary-container": "#bc13fe",
+                        "on-secondary-fixed-variant": "#0034c0",
+                        "secondary-container": "#0044f4",
+                        "background": "#131313",
+                        "on-tertiary": "#323200",
+                        "secondary-fixed-dim": "#b9c3ff",
+                        "on-surface-variant": "#d4c0d7",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed": "#1d1d00",
+                        "on-primary-fixed-variant": "#74009f",
+                        "on-primary-fixed": "#320047",
+                        "tertiary": "#cdcd00",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-container": "#ccd2ff",
+                        "inverse-primary": "#9800d0",
+                        "primary": "#ebb2ff",
+                        "on-error": "#690005",
+                        "surface-bright": "#3a3939",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary": "#00228a",
+                        "on-secondary-fixed": "#001257",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary": "#520072",
+                        "inverse-surface": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "surface-tint": "#ebb2ff",
+                        "on-background": "#e5e2e1",
+                        "surface": "#131313"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "stack-sm": "12px",
+                        "stack-lg": "48px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "stack-md": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "headline-lg-mobile": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-bold": ["Space Grotesk"],
+                        "label-mono": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-body-md text-on-surface selection:bg-tertiary selection:text-background overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-background/95 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/20 shadow-[0_0_20px_rgba(235,178,255,0.15)] flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-full">
+<div class="font-headline-md text-headline-md italic font-black text-primary tracking-tighter">
+            Benny's Motorsport
+        </div>
+<div class="hidden md:flex gap-gutter font-label-mono text-label-mono uppercase tracking-widest items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:text-tertiary transition-all duration-300" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:text-tertiary transition-all duration-300" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:text-tertiary transition-all duration-300" href="#">History</a>
+</div>
+<button class="bg-tertiary text-background font-label-bold text-label-bold px-6 py-2 uppercase tracking-wider active:scale-95 transition-transform hover:bg-tertiary/90 shadow-[0_0_15px_rgba(205,205,0,0.3)]">
+            Book Now
+        </button>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="High-fidelity hero image of a custom sports car" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsA9hWs2x3xAGqLq-KbKtzHr_2Pmq9fXxF-49LgIA9m9T_OlT-ALLXDthZOV5EKZBHXZHCO90lXUZEBCMKoTfiRXhToAJySgT0pOSURPMcVn2cMQRG43SW5mHu8UPihj71QGsODIYVZHhIyt5DMrMgLxoRxHCfsxSUumFzDoFm0ZtPgA7Ivgq7bW2OWxZxNaF_E2ZxiJA6dkQty4LvRX34WwCtNuCyH-2t4twi9fZ7LrHxSHy2kC569YoM-jRPyQOPIPJr-GcjivU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop text-center max-w-5xl">
+<h1 class="font-display-lg text-[40px] md:text-display-lg leading-tight mb-stack-md italic uppercase">
+                    Benny's Motorsport:<br/>
+<span class="text-primary italic">Precision</span> &amp; <span class="text-tertiary italic">Adrenaline</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-2xl mx-auto">
+                    Transform your machine into a masterpiece. From bespoke aerodynamic kits to high-velocity performance tuning, we define the future of custom automotive culture.
+                </p>
+<button class="bg-tertiary text-background font-label-bold text-label-bold text-lg px-10 py-4 uppercase tracking-widest active:scale-95 transition-all hover:shadow-[0_0_30px_rgba(205,205,0,0.5)]">
+                    Book Your Transformation
+                </button>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-base left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center">
+<span class="font-label-mono text-label-mono uppercase mb-2">Engage</span>
+<span class="material-symbols-outlined text-primary">keyboard_double_arrow_down</span>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface-dim">
+<div class="flex flex-col md:flex-row justify-between items-end mb-stack-lg border-b-2 border-primary pb-stack-sm">
+<div>
+<span class="font-label-mono text-label-mono text-primary uppercase mb-2 block tracking-[0.3em]">Performance Catalog</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase italic">Our Services</h2>
+</div>
+<div class="hidden md:block font-label-mono text-label-mono text-on-surface-variant max-w-xs text-right">
+                    Technical mastery delivered through precision engineering and artistic vision.
+                </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Service Card 1: Carwash -->
+<div class="group relative flex flex-col bg-surface-container border-2 border-tertiary speed-stripe-left overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+<div class="h-64 overflow-hidden relative">
+<img alt="Professional car wash service with neon lighting" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRml-9ZubCNxsG92mxG2Mbmi1vfn7sbu8c2Tj2cZHRVSTAupd0Ik_j9MnVjnytx2XLSi7dk4ER8QgkYhXuDQVrIDctaPxgXkAJb3zEUMF8bxgHn_qFGhN9OcOk_fjQqy9us6Cgmd-IJgDX2-2eCHiT8p48Kx_zcrMS8SB9vDka5Lce4kCsM8VFixTQyYTCfbiMVwPyCGYaBkhFlZUXbgu3ceFmigmF90MzNRt5A3UGD7XEW6eQDQbquy1E9CPvviH6q7sZ72Tzaws"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="glossy-overlay absolute inset-0"></div>
+</div>
+<div class="p-gutter flex flex-col flex-grow">
+<h3 class="font-headline-md text-2xl uppercase mb-base tracking-tighter">Carwash</h3>
+<p class="font-body-md text-on-surface-variant flex-grow mb-stack-md">
+                            High-tech detailing using chemical-balanced polymers and precision pressure-control systems for a mirror finish.
+                        </p>
+<button class="w-full border-2 border-secondary-container text-secondary font-label-bold text-label-bold py-3 uppercase tracking-widest hover:bg-secondary-container hover:text-on-primary-container transition-all flex justify-center items-center gap-2">
+                            Learn More
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Service Card 2: Accessories -->
+<div class="group relative flex flex-col bg-surface-container border-2 border-tertiary speed-stripe-left overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+<div class="h-64 overflow-hidden relative">
+<img alt="Custom car accessories display" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArlH07Ys8g-6toT9DwbTDsVXaFl7cFmzmM0AR9f8FdXhn0aqVew73e_36L1v8MeganQ_TEClO3hYfwffmg-D2kI7qjiPRbVHXd6vqR2VT9thoLRzxaK20qDlI0YnXex7cDogiY499_0ypDUjD0JKuii_InNXj7gUhHBUF6Ra3Qy76hVC8ooTVn32vVBSrtbp6jviv-sc9PV2sp34ksLfboDFHar2cwo6J90F4U6fzZBPiWJEncR7Wl33XhmgQikh1oSnaf4zZHI_8"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="glossy-overlay absolute inset-0"></div>
+</div>
+<div class="p-gutter flex flex-col flex-grow">
+<h3 class="font-headline-md text-2xl uppercase mb-base tracking-tighter">Accessories</h3>
+<p class="font-body-md text-on-surface-variant flex-grow mb-stack-md">
+                            Exclusive cockpit upgrades including forged carbon shifters, Alcantara steering wheels, and LED telemetry kits.
+                        </p>
+<button class="w-full border-2 border-secondary-container text-secondary font-label-bold text-label-bold py-3 uppercase tracking-widest hover:bg-secondary-container hover:text-on-primary-container transition-all flex justify-center items-center gap-2">
+                            Learn More
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Service Card 3: Paint Jobs -->
+<div class="group relative flex flex-col bg-surface-container border-2 border-tertiary speed-stripe-left overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+<div class="h-64 overflow-hidden relative">
+<img alt="Automotive paint shop iridescent finish" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpSyys5owwKvMSA2TDg_4dHX49bGOtEMhC0x9BNVgyZc-79WS7gjuc0P8W0PUI52pp-m3-tpG5tKf9Rp0joMCdR7XlPv7bS5PKtNPRbSP4CaP88jBWFq9rrPwXZIsKKfsv7vaBmkV9clfbklCLpBEMXo-cEHiQ5A2URPFJaIefnHI7tnOkELMtoz28uamsTcgEIVBZKUDQOrkeIG8a0vteJFxdKcN0D4aNBHuM57O_UgyY-SWz169FkErXPJkjClJmCVahYZzCs6c"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="glossy-overlay absolute inset-0"></div>
+</div>
+<div class="p-gutter flex flex-col flex-grow">
+<h3 class="font-headline-md text-2xl uppercase mb-base tracking-tighter">Paint Jobs</h3>
+<p class="font-body-md text-on-surface-variant flex-grow mb-stack-md">
+                            Signature iridescent finishes and deep-depth clear coats. Our master painters specialize in liquid-metal textures.
+                        </p>
+<button class="w-full border-2 border-secondary-container text-secondary font-label-bold text-label-bold py-3 uppercase tracking-widest hover:bg-secondary-container hover:text-on-primary-container transition-all flex justify-center items-center gap-2">
+                            Learn More
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Service Card 4: Body Parts -->
+<div class="group relative flex flex-col bg-surface-container border-2 border-tertiary speed-stripe-left overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+<div class="h-64 overflow-hidden relative">
+<img alt="Custom body parts and wide-body kits" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfkyPz0uGcck0VQ1dPVyyODSczLvZVheOLXxoOA-Q8kHY8cItm7_4MqRPMxkrHEiZlcPybha0RG_ui4kqrPWSZ-33iEgB9KOYupgiL6G3BDLj9Oc2iDQBCjegGCpvZeQ1_a_D8--xFJtl7SkMc6sl3TMBaJqA31QZi5hvr2v7es2h5_b6cEqRV8edZtKBBiyKkkkoEdlem01w6NzxQIYo-HGWY3k8WaXO0Oik41WSppj7EokMFCeAF0cCGhTsCW1CxZh2-o9j2Amo"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="glossy-overlay absolute inset-0"></div>
+</div>
+<div class="p-gutter flex flex-col flex-grow">
+<h3 class="font-headline-md text-2xl uppercase mb-base tracking-tighter">Body Parts</h3>
+<p class="font-body-md text-on-surface-variant flex-grow mb-stack-md">
+                            Wide-body conversions and aerodynamic carbon fiber components engineered for downforce and aggressive street presence.
+                        </p>
+<button class="w-full border-2 border-secondary-container text-secondary font-label-bold text-label-bold py-3 uppercase tracking-widest hover:bg-secondary-container hover:text-on-primary-container transition-all flex justify-center items-center gap-2">
+                            Learn More
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Garage History Section -->
+<section class="py-stack-lg relative overflow-hidden bg-background">
+<!-- Decorative Glows -->
+<div class="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -translate-x-1/2"></div>
+<div class="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] translate-x-1/2"></div>
+<div class="px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter relative z-10">
+<div class="lg:col-span-4 lg:sticky lg:top-24 h-fit">
+<span class="font-label-mono text-label-mono text-secondary uppercase mb-2 block">Origin Story</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase italic mb-stack-md">The Evolution of Speed</h2>
+<div class="h-1 w-24 bg-tertiary mb-stack-md"></div>
+</div>
+<div class="lg:col-span-8 glass-panel p-stack-md md:p-stack-lg border-l-4 border-primary">
+<div class="space-y-stack-md font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+<p>
+                            It began in a small, dimly lit workshop in the heart of the city’s industrial district. Benny, a master mechanic with a passion for endurance racing and urban street culture, saw cars not just as machines, but as canvases for technical expression.
+                        </p>
+<p>
+                            What started with simple engine tuning soon evolved into a quest for total automotive transformation. Benny's Motorsport became the whispered name among elite drivers looking for that "impossible" edge—whether it was a custom-milled turbo housing or a paint finish that seemed to change color under the city's neon lights.
+                        </p>
+<p class="border-y border-white/10 py-stack-sm my-stack-md italic text-on-surface">
+                            "We don't just build cars; we build legacies of adrenaline. Every bolt, every spray, every pixel of our telemetry is a testament to the pursuit of mechanical perfection." — <span class="text-tertiary font-bold">Benny</span>
+</p>
+<p>
+                            Today, our facility stands as a high-performance hub, blending aerospace-grade materials with artistic flair. We have expanded from a two-man crew to a team of world-class aerodynamicists, color specialists, and master technicians, all dedicated to one goal: your machine's absolute dominance.
+                        </p>
+</div>
+<div class="mt-stack-lg grid grid-cols-2 md:grid-cols-3 gap-gutter text-center">
+<div class="p-stack-sm border border-outline-variant bg-surface-container-low">
+<div class="text-tertiary font-headline-md text-3xl mb-1">15+</div>
+<div class="font-label-mono text-xs uppercase tracking-tighter">Years of Mastery</div>
+</div>
+<div class="p-stack-sm border border-outline-variant bg-surface-container-low">
+<div class="text-primary font-headline-md text-3xl mb-1">500+</div>
+<div class="font-label-mono text-xs uppercase tracking-tighter">Custom Builds</div>
+</div>
+<div class="p-stack-sm border border-outline-variant bg-surface-container-low col-span-2 md:col-span-1">
+<div class="text-secondary font-headline-md text-3xl mb-1">24/7</div>
+<div class="font-label-mono text-xs uppercase tracking-tighter">Adrenaline Injection</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic CTA -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop">
+<div class="bg-primary-container p-stack-lg text-center relative overflow-hidden border-2 border-white/30">
+<div class="absolute inset-0 bg-black/20 mix-blend-overlay"></div>
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg uppercase italic text-on-primary-container mb-stack-md">Ready to Transcend the Ordinary?</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container/80 mb-stack-lg max-w-xl mx-auto">
+                        Your vehicle is waiting for its final form. Join the elite circle of Benny's Motorsport owners.
+                    </p>
+<div class="flex flex-col md:flex-row justify-center gap-gutter">
+<button class="bg-tertiary text-background font-label-bold text-label-bold px-12 py-4 uppercase tracking-widest hover:bg-tertiary/90 transition-all">
+                            Start Your Build
+                        </button>
+<button class="border-2 border-on-primary-container text-on-primary-container font-label-bold text-label-bold px-12 py-4 uppercase tracking-widest hover:bg-white/10 transition-all">
+                            View Gallery
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t-2 border-primary w-full mt-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-stack-lg">
+<!-- Brand Column -->
+<div class="flex flex-col gap-base">
+<div class="font-headline-md text-headline-md font-bold text-tertiary">Benny's Motorsport</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic">
+                    Precision &amp; Adrenaline. The destination for high-performance automotive transformation since 2009.
+                </p>
+<div class="flex gap-4 mt-stack-sm">
+<a class="text-on-surface hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="text-on-surface hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="text-on-surface hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">star</span>
+</a>
+</div>
+</div>
+<!-- Quick Links -->
+<div>
+<h4 class="font-label-bold text-label-bold text-primary uppercase mb-stack-sm tracking-widest">Our Services</h4>
+<ul class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-200" href="#">Carwash</a></li>
+<li><a class="hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-200" href="#">Accessories</a></li>
+<li><a class="hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-200" href="#">Paint Jobs</a></li>
+<li><a class="hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-200" href="#">Body Parts</a></li>
+</ul>
+</div>
+<!-- Company -->
+<div>
+<h4 class="font-label-bold text-label-bold text-primary uppercase mb-stack-sm tracking-widest">Company</h4>
+<ul class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-200" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-200" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-200" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-200" href="#">Garage Portal</a></li>
+</ul>
+</div>
+<!-- Contact -->
+<div>
+<h4 class="font-label-bold text-label-bold text-primary uppercase mb-stack-sm tracking-widest">Contact</h4>
+<ul class="flex flex-col gap-3 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">location_on</span>
+                        1024 Turbo Lane, Motor District
+                    </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">call</span>
+                        +1 (555) NITRO-88
+                    </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">mail</span>
+                        garage@bennysmotorsport.com
+                    </li>
+</ul>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-base border-t border-white/10 flex flex-col md:flex-row justify-between items-center font-label-mono text-[10px] uppercase tracking-widest text-on-surface-variant opacity-50">
+<div>© 2024 Benny's Motorsport. Precision &amp; Adrenaline.</div>
+<div class="mt-2 md:mt-0">Built for the street, forged in the shop.</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for speed/adrenaline feel
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.transform = 'scale(0.95)';
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.transform = '';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = '';
+            });
+        });
+
+        // Simple scroll reveal for sections
+        const revealSections = () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight * 0.85) {
+                    section.classList.add('opacity-100');
+                    section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealSections);
+        window.addEventListener('load', revealSections);
+    </script>
+</body></html>
