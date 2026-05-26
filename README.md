@@ -39,8 +39,10 @@ The repository is organized into distinct design streams based on the framework 
 * **Core Stack:** Vanilla HTML, Tailwind CSS, Micro-Interactions script.
 * **Key Features:** Layered overlapping text blocks, non-standard product cards, info-dense gallery grids, and a massive 5-column architectural footer.
 
+<p align="center">
 <img src="./Images/image1.png" alt="Retail Architectural Layout 1" width="70%" style="max-width:800px; border-radius:4px;">
 <img src="./Images/image2.png" alt="Retail Architectural Layout 2" width="70%" style="max-width:800px; border-radius:4px;">
+  </p>
 *Figure 1: Desktop layout view highlighting asymmetric text overlays and the 1px architectural grid system.*
 
 ---
@@ -50,8 +52,8 @@ The repository is organized into distinct design streams based on the framework 
 * **Core Stack:** Tailwind CSS, Custom Interactive Canvas Cursor.
 * **Key Features:** Smooth infinite text marquee, technical data grids, and a glassmorphic endeavor list optimized for precision-engineered products.
 
-![Vortek Kinetic Layout](./path-to-your-screenshots/vortek-kinetic.png)
-*Figure 2: Dark mode preview showcasing interactive glow cards and the custom dual-element precision pointer.*
+<img src="./Images/image3.png" alt="Services Architectural Layout 1" width="60%" style="max-width:800px; border-radius:4px;">
+*Figure 2: Dark mode preview showcasing interactive service related templates.*
 
 ---
 
@@ -59,8 +61,9 @@ The repository is organized into distinct design streams based on the framework 
 * **Aesthetic:** "Old Money" editorial layout, clean off-white background paired with high-energy Electric Azure highlights.
 * **Core Stack:** HTML5, Times New Roman Typographic Engine.
 * **Key Features:** Pure typographic hierarchy, ultra-thin hairline dividers, and fluid layouts that discard standard component margins completely.
+Created using Gemini In-Built Canvas Generation Tool .
 
-![Classic Heritage Layout](./path-to-your-screenshots/classic-heritage.png)
+<img src="./Images/image4.png" alt="Services Architectural Layout 1" width="60%" style="max-width:800px; border-radius:4px;">
 *Figure 3: Light mode presentation illustrating high-contrast typography and razor-sharp separation rules.*
 
 ---
