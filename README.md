@@ -42,7 +42,7 @@ The repository is organized into distinct design streams based on the framework 
 <table border="0" cellpadding="0" cellspacing="0">
   <tr>
     <td width="50%" valign="top">
-      <img src="./Images/retail-archive-desktop.png" alt="Retail Architectural Desktop View" width="50%" style="border-radius:4px; border: 1px solid rgba(0,0,0,0.05);">
+      <img src="./Images/retail-archive.png" alt="Retail Architectural Desktop View" width="50%" style="border-radius:4px; border: 1px solid rgba(0,0,0,0.05);">
       <p align="center"><em>Figure 1a: Desktop Hero & Grid Grid System</em></p>
     </td>
     <td width="50%" valign="top">
