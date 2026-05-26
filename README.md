@@ -19,7 +19,6 @@ The repository is organized into distinct design streams based on the framework 
 ```bash
 ├── 1) Stitch/               # Custom Stitch template ecosystem
 │   ├── Retail_E-Commerce/   # High-fashion retail layouts
-│   ├── Shop_Buy_Sell/       # Commercial and marketplace designs
 │   ├── Showcase/            # Dynamic product & automotive showcases
 │   ├── Service_Related/     # Editorial agency and service portfolios
 │   └── Extras/              # Experimental snippets and micro-layouts
