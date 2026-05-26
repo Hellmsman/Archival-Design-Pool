@@ -39,7 +39,7 @@ The repository is organized into distinct design streams based on the framework 
 * **Core Stack:** Vanilla HTML, Tailwind CSS, Micro-Interactions script.
 * **Key Features:** Layered overlapping text blocks, non-standard product cards, info-dense gallery grids, and a massive 5-column architectural footer.
 
-![Retail Architectural Layout](./path-to-your-screenshots/retail-archive.png)
+<img src="./images/retail-archive.png" alt="Retail Architectural Layout" width="100%" style="max-width:800px; border-radius:4px;">
 *Figure 1: Desktop layout view highlighting asymmetric text overlays and the 1px architectural grid system.*
 
 ---
