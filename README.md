@@ -84,7 +84,7 @@ Clone the repository and spin up a local server to view the entire showcase inte
 
 ```bash
 # Clone this vault
-git clone [https://github.com/hellmsman/archival-design-pool.git](https://github.com/hellmsman/archival-design-pool.git)
+git clone https://github.com/hellmsman/archival-design-pool.git 
 
 # Navigate into your layout collection of choice
 cd archival-design-pool/
