@@ -40,8 +40,8 @@ The repository is organized into distinct design streams based on the framework 
 * **Key Features:** Layered overlapping text blocks, non-standard product cards, info-dense gallery grids, and a massive 5-column architectural footer.
 
 <p align="center">
-<img src="./Images/image1.png" alt="Retail Architectural Layout 1" width="70%" style="max-width:800px; border-radius:4px;">
-<img src="./Images/image2.png" alt="Retail Architectural Layout 2" width="70%" style="max-width:800px; border-radius:4px;">
+<img src="./Images/image1.png" alt="Retail Architectural Layout 1" width="100%" style="max-width:800px; border-radius:4px;">
+<img src="./Images/image2.png" alt="Retail Architectural Layout 2" width="100%" style="max-width:800px; border-radius:4px;">
   </p>
 *Figure 1: Desktop layout view highlighting asymmetric text overlays and the 1px architectural grid system.*
 
@@ -52,7 +52,7 @@ The repository is organized into distinct design streams based on the framework 
 * **Core Stack:** Tailwind CSS, Custom Interactive Canvas Cursor.
 * **Key Features:** Smooth infinite text marquee, technical data grids, and a glassmorphic endeavor list optimized for precision-engineered products.
 
-<img src="./Images/image3.png" alt="Services Architectural Layout 1" width="60%" style="max-width:800px; border-radius:4px;">
+<img src="./Images/image3.png" alt="Services Architectural Layout 1" width="100%" style="max-width:800px; border-radius:4px;">
 *Figure 2: Dark mode preview showcasing interactive service related templates.*
 
 ---
@@ -63,7 +63,7 @@ The repository is organized into distinct design streams based on the framework 
 * **Key Features:** Pure typographic hierarchy, ultra-thin hairline dividers, and fluid layouts that discard standard component margins completely.
 Created using Gemini In-Built Canvas Generation Tool .
 
-<img src="./Images/image4.png" alt="Services Architectural Layout 1" width="60%" style="max-width:800px; border-radius:4px;">
+<img src="./Images/image4.png" alt="Services Architectural Layout 1" width="100%" style="max-width:800px; border-radius:4px;">
 *Figure 3: Light mode presentation illustrating high-contrast typography and razor-sharp separation rules.*
 
 ---
