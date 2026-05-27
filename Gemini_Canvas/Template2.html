@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VORTEK | Kinetic Elegance Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Inter:wght@100;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --text-light: #f4f4f4;
+            --accent-silver: #a0a0a0;
+            --hairline: rgba(244, 244, 244, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            cursor: none;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .serif { font-family: 'Cormorant Garamond', serif; }
+
+        #cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s ease;
+        }
+
+        #cursor-ring {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-header {
+            backdrop-filter: blur(15px);
+            background: rgba(10, 10, 10, 0.7);
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .img-mask {
+            clip-path: inset(0 0 0 0);
+            transition: clip-path 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .img-mask.active {
+            clip-path: inset(0 0 0 0); /* Initial state for reveal logic */
+        }
+
+        .spec-item {
+            border-left: 1px solid var(--hairline);
+            padding-left: 1.5rem;
+            transition: border-color 0.4s ease;
+        }
+
+        .spec-item:hover {
+            border-color: white;
+        }
+
+        .ghost-text {
+            font-size: 20vw;
+            line-height: 0.8;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(244, 244, 244, 0.05);
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .scroll-indicator {
+            height: 60px;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, white, transparent);
+            animation: scrollLine 2s infinite;
+        }
+
+        @keyframes scrollLine {
+            0% { transform: scaleY(0); transform-origin: top; }
+            50% { transform: scaleY(1); transform-origin: top; }
+            50.1% { transform: scaleY(1); transform-origin: bottom; }
+            100% { transform: scaleY(0); transform-origin: bottom; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cursor-follower"></div>
+    <div id="cursor-ring"></div>
+
+    <nav class="fixed top-0 w-full z-50 glass-header px-10 py-6 flex justify-between items-center">
+        <div class="text-xl font-light tracking-[0.4em] uppercase">Vortek</div>
+        <div class="hidden lg:flex gap-16 text-[10px] tracking-[0.3em] uppercase font-light">
+            <a href="#" class="hover:text-accent-silver transition-colors">Precision</a>
+            <a href="#" class="hover:text-accent-silver transition-colors">Engineering</a>
+            <a href="#" class="hover:text-accent-silver transition-colors">Legacy</a>
+        </div>
+        <div class="text-[9px] uppercase tracking-[0.2em] border border-white/20 px-4 py-2 rounded-full">
+            Inquire
+        </div>
+    </nav>
+
+    <header class="h-screen w-full flex flex-col justify-center items-center relative overflow-hidden px-6">
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <img src="https://placehold.co/1920x1080/1a1a1a/333333?text=Cinematic+Subject+01" class="w-full h-full object-cover opacity-40 scale-110" alt="Background">
+        </div>
+        
+        <div class="relative z-10 text-center">
+            <span class="text-[10px] uppercase tracking-[0.6em] mb-6 block reveal">The New Standard of Motion</span>
+            <h1 class="text-7xl md:text-[10rem] serif italic font-light leading-none reveal">
+                Aero <span class="not-italic font-thin">X</span>
+            </h1>
+            <div class="mt-16 flex flex-col items-center reveal">
+                <div class="scroll-indicator"></div>
+                <span class="text-[8px] uppercase tracking-[0.4em] mt-4 opacity-40">Scroll to Explore</span>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 right-10 flex gap-12 text-[10px] tracking-widest opacity-30">
+            <span>01 // START</span>
+            <span>MODEL 2025</span>
+        </div>
+    </header>
+
+    <section class="py-40 bg-black relative">
+        <div class="absolute top-0 left-0 ghost-text">KINETIC</div>
+        
+        <div class="container mx-auto px-10 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+                <div class="reveal">
+                    <h2 class="text-4xl md:text-6xl serif italic mb-10 leading-tight">
+                        Defined by what<br>you cannot see.
+                    </h2>
+                    <p class="text-sm font-light leading-relaxed opacity-60 max-w-md mb-12">
+                        Aerodynamics isn't just about speed; it's about silence. The Aero X utilizes active molecular surfaces to shift air resistance in real-time, creating a vacuum of calm inside the cabin.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-10">
+                        <div class="spec-item">
+                            <span class="block text-[9px] uppercase tracking-widest opacity-40 mb-2">Efficiency</span>
+                            <span class="text-xl font-light">0.18 Cd</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="block text-[9px] uppercase tracking-widest opacity-40 mb-2">Response</span>
+                            <span class="text-xl font-light">0.02s</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative reveal">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://placehold.co/800x1000/111/444?text=Chassis+Detail" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" alt="Engineering Detail">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-white text-black p-8 hidden md:block">
+                        <p class="text-[10px] uppercase tracking-tighter font-bold mb-1">Material Integrity</p>
+                        <p class="text-xs italic serif">Forged Carbon / Titanium Matrix</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-40 border-y border-white/5">
+        <div class="container mx-auto px-10">
+            <div class="max-w-4xl">
+                <span class="text-[10px] uppercase tracking-[0.5em] text-accent-silver mb-8 block">The Experience</span>
+                <p class="text-3xl md:text-5xl serif italic font-light leading-tight reveal">
+                    "Driving the Aero X isn't transportation. It is a dialogue between the road and your nervous system. Absolute, unwavering precision."
+                </p>
+                <div class="mt-12 flex items-center gap-6 reveal">
+                    <div class="w-16 h-px bg-white/20"></div>
+                    <div>
+                        <p class="text-xs uppercase tracking-widest">Elias Thorne</p>
+                        <p class="text-[9px] uppercase tracking-widest opacity-40 italic">Chief Test Pilot, Vortek Industries</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-40 px-10">
+        <div class="flex justify-between items-end mb-20">
+            <div>
+                <h2 class="text-5xl serif italic font-light mb-4">Endeavors</h2>
+                <div class="h-px w-40 bg-gradient-to-r from-white to-transparent"></div>
+            </div>
+            <p class="text-[10px] uppercase tracking-widest opacity-40 text-right hidden md:block">Global Innovation Hubs</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="group reveal">
+                <div class="aspect-square overflow-hidden mb-6 bg-[#111]">
+                    <img src="https://placehold.co/800x800/1a1a1a/555?text=Lab+01" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70">
+                </div>
+                <h3 class="text-lg serif italic mb-2">Sustainable Core</h3>
+                <p class="text-[10px] uppercase tracking-widest opacity-50">Copenhagen Research Center</p>
+            </div>
+            <div class="group reveal md:mt-20">
+                <div class="aspect-square overflow-hidden mb-6 bg-[#111]">
+                    <img src="https://placehold.co/800x800/1a1a1a/555?text=Lab+02" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70">
+                </div>
+                <h3 class="text-lg serif italic mb-2">Neural Interface</h3>
+                <p class="text-[10px] uppercase tracking-widest opacity-50">Silicon Valley Labs</p>
+            </div>
+            <div class="group reveal">
+                <div class="aspect-square overflow-hidden mb-6 bg-[#111]">
+                    <img src="https://placehold.co/800x800/1a1a1a/555?text=Lab+03" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70">
+                </div>
+                <h3 class="text-lg serif italic mb-2">Extreme Conditions</h3>
+                <p class="text-[10px] uppercase tracking-widest opacity-50">Arctic Proving Ground</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="pt-40 pb-12 px-10 border-t border-white/10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 mb-40">
+            <div class="lg:col-span-5">
+                <h4 class="text-5xl md:text-7xl serif italic mb-10 leading-none">The Future,<br>Uncompromised.</h4>
+                <p class="text-sm font-light opacity-40 max-w-sm mb-12">
+                    Vortek represents the intersection of human ambition and machine perfection. We do not build for the masses; we build for the moment.
+                </p>
+                <div class="flex gap-10">
+                    <a href="#" class="text-[10px] tracking-[0.3em] uppercase hover:text-accent-silver">Privacy</a>
+                    <a href="#" class="text-[10px] tracking-[0.3em] uppercase hover:text-accent-silver">Logistics</a>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-2 space-y-8">
+                <h5 class="text-[9px] uppercase tracking-[0.5em] text-accent-silver">Contact</h5>
+                <ul class="text-xs font-light space-y-4 opacity-70 italic">
+                    <li>Atelier London</li>
+                    <li>Studio Tokyo</li>
+                    <li>Base Munich</li>
+                </ul>
+            </div>
+
+            <div class="lg:col-span-5 space-y-12">
+                <h5 class="text-[9px] uppercase tracking-[0.5em] text-accent-silver">Join the Registry</h5>
+                <div class="border-b border-white/20 pb-4 flex items-center">
+                    <input type="email" placeholder="Your Digital Address" class="bg-transparent text-sm italic font-light outline-none w-full placeholder:opacity-20">
+                    <button class="text-[10px] uppercase tracking-widest">Connect</button>
+                </div>
+                <div class="flex justify-between items-end">
+                    <div class="flex gap-8 opacity-40 text-[9px] tracking-widest uppercase">
+                        <span>FB</span><span>IG</span><span>LI</span>
+                    </div>
+                    <span class="text-[9px] opacity-20">©2025 VORTEK CORP.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center pt-20 border-t border-white/5">
+            <span class="text-[20vw] leading-none serif italic font-thin opacity-[0.02] select-none">VORTEK</span>
+        </div>
+    </footer>
+
+    <script>
+        
+        // Advanced Custom Cursor Logic
+        const follower = document.getElementById('cursor-follower');
+        const ring = document.getElementById('cursor-ring');
+        
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            // Smooth easing for the follower and ring
+            followerX += (mouseX - followerX) * 0.2;
+            followerY += (mouseY - followerY) * 0.2;
+            ringX += (mouseX - ringX) * 0.1;
+            ringY += (mouseY - ringY) * 0.1;
+
+            follower.style.left = followerX + 'px';
+            follower.style.top = followerY + 'px';
+            ring.style.left = (ringX - 20) + 'px';
+            ring.style.top = (ringY - 20) + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Interaction effects
+        document.querySelectorAll('a, button, .spec-item').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                ring.style.transform = 'scale(1.5)';
+                ring.style.borderColor = 'white';
+                follower.style.transform = 'scale(0)';
+            });
+            el.addEventListener('mouseleave', () => {
+                ring.style.transform = 'scale(1)';
+                ring.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                follower.style.transform = 'scale(1)';
+            });
+        });
+
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Parallax for ghost text
+        window.addEventListener('scroll', () => {
+            const scroll = window.pageYOffset;
+            const ghost = document.querySelector('.ghost-text');
+            if (ghost) {
+                ghost.style.transform = `translateX(${scroll * 0.2}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
